@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}"
 
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
+	cd ../../Doki-Doki-Takeover-2.0.7
 	haxelib run lime build linux -verbose
 }
 src_install() {

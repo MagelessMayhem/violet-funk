@@ -21,14 +21,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	x11-libs/libX11
 	=dev-lang/haxe-9999
 "
 DEPEND="${RDEPEND}"
 
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
+	cd ../../funkin-dave-3.0.0
 	haxelib run lime build linux -verbose
 }
 src_install() {

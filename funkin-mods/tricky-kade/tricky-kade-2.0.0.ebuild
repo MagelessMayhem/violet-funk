@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}"
 
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
+	cd ../../tricky-kade-2.0.0
 	haxelib run lime build linux -verbose
 }
 src_install() {

@@ -7,9 +7,9 @@ EAPI=8
 
 DESCRIPTION="Scarecrow yells at child for 10 minutes"
 
-HOMEPAGE="https://foo.example.org/"
+HOMEPAGE="https://github.com/KadeDev/Vs-Zardy"
 
-SRC_URI="ftp://foo.example.org/${P}.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/zardy-kade/archive/refs/tags/v0.2.7.1.tar.gz"
 
 S="${WORKDIR}/zardy-kade-0.2.7.1"
 

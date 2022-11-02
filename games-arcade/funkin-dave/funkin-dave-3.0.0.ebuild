@@ -21,6 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	x11-libs/libX11
 	=dev-lang/haxe-9999
 "
 DEPEND="${RDEPEND}"

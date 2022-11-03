@@ -39,8 +39,5 @@ src_install() {
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "After the 2nd song the game should crash with a"
-	elog "threatening dialog box. If it does not do this,"
-	elog "or if it crashes with a different dialog box,"
-	elog "please let me know."
+	elog "You can find the mod under /usr/games."
 }

@@ -1,16 +1,18 @@
 # LarryTheFunker
 Gentoo ebuild overlay based around FNF and FNF mods.
 
-If you're using this overlay you should use the haxe ebuild this overlay requires; it is simply ditto of Gentoo's ebuild except it pulls in the latest git instead of `haxe-debian`, which would otherwise ignore the legitimacy of haxelib. All FNF ebuilds pull this ebuild in by default.
+Using this overlay is fairly easy. First install `app-eselect/eselect-repository` and issue the following commands to add the overlay to your system:
 
-To install the needed Haxe dependencies for the ebuilds in this overlay, execute `ltf-haxelib.sh` as root or under sudo.
-
-After you've installed the necessary dependencies/libraries, you'll need to create the necessary haxelib directory for the portage user. You can simply execute `ltf-conf.sh` as root or under sudo to automate this. To make it easier on yourself, `ltf-conf.sh` automatically symlinks itself to `/usr/bin/ltf-conf` so you can simply use `ltf-conf` any time Portage removes the haxelib directory.
-
-If Portage yells at you about the custom `funkin-mods` category, just use, as root (meaning inside of sudo -s) `echo "funkin-mods" > /etc/portage/categories`.
-
-Almost forgot about installation (whoops). To install this overlay to your system, simply have `app-eselect/eselect-repository` installed and use:
-
-`sudo eselect repository add LarryTheFunker git https://github.com/MagelessMayhem/LarryTheFunker`
+`sudo eselect repository add LarryTheFunker git https://github.com/MagelessMayhem/LarryTheFunker
 
 `sudo emerge --sync LarryTheFunker`
+
+If you get a complaint about the `funkin-mods` category, simply append `funkin-mods` to `/etc/portage/categories`.
+
+Next, merge this overlay's Haxe ebuild to merge the correct haxelib:
+
+`sudo emerge --ask --autounmask=y =dev-lang/haxe-9999`
+
+After Haxe has been merged, run `/var/db/repos/LarryTheFunker/ltf-haxelib.sh` and `/var/db/repos/LarryTheFunker/ltf-conf.sh` respectively. These scripts install the necessary Haxe libraries and create the directory the ebuilds use to build FNF and/or FNF mods.
+
+After you've done all this, you're set! You can merge any FNF ebuild to your heart's content.

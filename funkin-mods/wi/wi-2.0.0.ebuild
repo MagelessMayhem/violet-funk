@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	media-sound/pulseaudio
 	x11-libs/libX11
 	=dev-lang/haxe-9999
 "

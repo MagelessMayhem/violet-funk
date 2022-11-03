@@ -37,5 +37,5 @@ src_install() {
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod under /usr/share/games."
+	elog "You can find the mod under /usr/games."
 }

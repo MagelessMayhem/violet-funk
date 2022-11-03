@@ -1,5 +1,9 @@
 #!/bin/bash
 # Execute as root or sudo, otherwise this will not work
+if [ $(id -u) > 0 ]; then
+  echo "Please run this script as root/sudo."
+  exit 1
+fi
 echo "Creating Haxelib directory for the portage user."
 sleep 1
 mkdir -p /var/tmp/portage/.local/share/haxe/

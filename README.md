@@ -7,8 +7,6 @@ Using this overlay is fairly easy. First install `app-eselect/eselect-repository
 
 `sudo emerge --sync LarryTheFunker`
 
-If you get a complaint about the `funkin-mods` category, simply append `funkin-mods` to `/etc/portage/categories`.
-
 Next, merge this overlay's Haxe ebuild to merge the correct haxelib:
 
 `sudo emerge --ask --autounmask=y =dev-lang/haxe-9999`

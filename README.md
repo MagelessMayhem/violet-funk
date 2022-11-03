@@ -3,7 +3,7 @@ Gentoo ebuild overlay based around FNF and FNF mods.
 
 Using this overlay is fairly easy. First install `app-eselect/eselect-repository` and issue the following commands to add the overlay to your system:
 
-`sudo eselect repository add LarryTheFunker git https://github.com/MagelessMayhem/LarryTheFunker
+`sudo eselect repository add LarryTheFunker git https://github.com/MagelessMayhem/LarryTheFunker`
 
 `sudo emerge --sync LarryTheFunker`
 

@@ -28,7 +28,7 @@ DEPEND="
 "
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ../../Cyber-Sensation-0.2.7.1/
+	cd ${S}
 	haxelib run lime build linux -verbose
 }
 src_install() {

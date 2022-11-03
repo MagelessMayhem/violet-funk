@@ -2,6 +2,7 @@
 # Execute as root or sudo, otherwise this will not work
 if [ $(id -u) > 0 ]; then
   echo "Please run this script as root/sudo."
+  echo $(id -u)
   exit 1
 fi
 

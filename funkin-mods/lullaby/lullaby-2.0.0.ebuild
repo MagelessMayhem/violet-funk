@@ -32,10 +32,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/FNF-Lullaby"
-	insinto "/usr/share/games/FNF-Lullaby"
+	keepdir "/usr/games/FNF-Lullaby"
+	insinto "/usr/games/FNF-Lullaby"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "The mod can be found under /usr/share/games."
+	elog "The mod can be found under /usr/games."
 }

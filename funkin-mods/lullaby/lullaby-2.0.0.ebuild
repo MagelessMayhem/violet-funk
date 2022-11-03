@@ -1,11 +1,6 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Please use the following commands to properly compile Lullaby:
-# sudo haxelib install flxanimate
-# sudo haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
-# sudo haxelib run lime rebuild hxCodec linux
-# sudo ltf-conf
 EAPI=8
 
 DESCRIPTION="Forever Engine port of Hypno's Lullaby"

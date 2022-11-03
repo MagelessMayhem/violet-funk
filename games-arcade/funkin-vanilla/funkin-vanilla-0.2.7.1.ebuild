@@ -12,7 +12,7 @@ HOMEPAGE="https://ninja-muffin24.itch.io/funkin"
 # This tarball contains an hscript fix that allows FNF to compile properly
 SRC_URI="
 	https://github.com/MagelessMayhem/Funkin/archive/refs/tags/v0.2.7.1.tar.gz
-	utau? (https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1u/utau-covers.tar.gz)
+	utau? ( https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1u/utau-covers.tar.gz )
 	"
 
 S="${WORKDIR}/Funkin-0.2.7.1"

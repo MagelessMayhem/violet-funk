@@ -30,8 +30,8 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/fliqpy-kade"
-	insinto "/usr/share/games/fliqpy-kade"
+	keepdir "/usr/games/fliqpy-kade"
+	insinto "/usr/games/fliqpy-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {

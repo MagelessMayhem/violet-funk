@@ -35,7 +35,7 @@ DEPEND="
 # Implement a dummy template Haxe file; the game will not compile without it. This is also mentioned in the Funkin compilation instructions.
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ../../work/Funkin-0.2.7.1/
+	cd ${S}
         touch source/APIStuff.hx
         echo "package;
               class APIStuff

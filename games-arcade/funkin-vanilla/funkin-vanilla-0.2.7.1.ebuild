@@ -62,5 +62,6 @@ pkg_postinst() {
 	elog "FNF has been installed to /usr/share/games/Funkin. You may cd"
 	elog "into this directory to run the game."
 	elog
-	elog "If you want UTAU covers, enable the utau USE flag."
+	elog "If you want UTAU covers, enable the utau USE flag and"
+	elog "remerge this package."
 }

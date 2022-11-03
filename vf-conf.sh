@@ -3,7 +3,6 @@
 currentid=$(id -u)
 if [ "$currentid" != 0 ]; then
   echo "Please run this script as root/sudo."
-  echo $(id -u)
   exit 1
 fi
 

@@ -32,10 +32,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/zardy-kade"
-	insinto "/usr/share/games/zardy-kade"
+	keepdir "/usr/games/zardy-kade"
+	insinto "/usr/games/zardy-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/share/games."
+	elog "You can find the mod in /usr/games."
 }

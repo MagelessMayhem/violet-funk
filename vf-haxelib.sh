@@ -1,6 +1,6 @@
 #!/bin/bash
 # Execute as sudo/root, otherwise this will not work
-# Make sure to execute ltf-conf.sh after this to create the portage directory
+# Make sure to execute vf-conf.sh after this to create the portage directory
 haxelib setup /usr/share/haxe/lib
 haxelib install newgrounds
 haxelib install lime

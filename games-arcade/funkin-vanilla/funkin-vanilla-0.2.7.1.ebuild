@@ -21,12 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="
-	+haxe
-	+X
-	+gtk
-	+pulseaudio
-	qt
-	lua
+	utau
 "
 
 RDEPEND="

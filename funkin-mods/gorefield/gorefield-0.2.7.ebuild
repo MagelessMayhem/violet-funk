@@ -33,10 +33,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/FNF-Gorefield"
-	insinto "/usr/share/games/FNF-Gorefield"
+	keepdir "/usr/games/FNF-Gorefield"
+	insinto "/usr/games/FNF-Gorefield"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/share/games."
+	elog "You can find the mod in /usr/games."
 }

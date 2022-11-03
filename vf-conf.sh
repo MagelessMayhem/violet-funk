@@ -11,6 +11,6 @@ mkdir -p /var/tmp/portage/.local/share/haxe/
 cp -r /usr/share/haxe/lib /var/tmp/portage/.local/share/haxe
 echo "Symlinking vf-conf to /usr/bin."
 sleep 1
-ln -s /var/db/repos/violet-funk/ltf-conf.sh /usr/bin/vf-conf
+ln -s /var/db/repos/violet-funk/vf-conf.sh /usr/bin/vf-conf
 chmod +x /usr/bin/vf-conf
 echo "Done."

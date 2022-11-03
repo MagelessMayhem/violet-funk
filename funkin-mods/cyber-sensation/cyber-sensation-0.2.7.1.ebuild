@@ -20,14 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="
-	+X
-	+gtk
-	+haxe
-	+pulseaudio
-	+native
-	html5
-	lua
-	qt
+	utau
 "
 
 RDEPEND="

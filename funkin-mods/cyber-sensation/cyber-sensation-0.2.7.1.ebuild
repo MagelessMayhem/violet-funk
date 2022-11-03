@@ -34,8 +34,8 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/Cyber-Sensation"
-	insinto "/usr/share/games/Cyber-Sensation"
+	keepdir "/usr/games/Cyber-Sensation"
+	insinto "/usr/games/Cyber-Sensation"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {

@@ -19,10 +19,6 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-IUSE="
-	utau
-"
-
 RDEPEND="
 	=dev-lang/haxe-9999
 "

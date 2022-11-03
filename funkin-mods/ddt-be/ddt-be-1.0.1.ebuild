@@ -32,8 +32,8 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/DDT-Bad-Ending"
-	insinto "/usr/share/games/DDT-Bad-Ending"
+	keepdir "/usr/games/DDT-Bad-Ending"
+	insinto "/usr/games/DDT-Bad-Ending"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {

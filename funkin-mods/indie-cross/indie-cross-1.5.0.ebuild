@@ -32,10 +32,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/Indie-Cross"
-	insinto "/usr/share/games/Indie-Cross"
+	keepdir "/usr/games/Indie-Cross"
+	insinto "/usr/games/Indie-Cross"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod under /usr/share/games."
+	elog "You can find the mod under /usr/games."
 }

@@ -13,6 +13,7 @@ DEPEND="
 	funkin-mods/cyber-sensation
 	funkin-mods/ddt-be
 	funkin-mods/ddt
+	funkin-mods/fliqpy-kade
 	funkin-mods/gorefield
 	funkin-mods/indie-cross
 	funkin-mods/jerry

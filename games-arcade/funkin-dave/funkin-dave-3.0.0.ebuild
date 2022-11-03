@@ -33,12 +33,12 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/Funkin-Dave"
-	insinto "/usr/share/games/Funkin-Dave"
+	keepdir "/usr/games/Funkin-Dave"
+	insinto "/usr/games/Funkin-Dave"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find this build in /usr/share/games."
+	elog "You can find this build in /usr/games."
 	elog
 	elog "Huge shoutout to MoldyGH for giving his engine"
 	elog "official Linux support. It made this ebuild more"

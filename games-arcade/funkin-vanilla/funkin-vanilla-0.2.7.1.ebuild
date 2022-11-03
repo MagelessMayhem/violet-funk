@@ -62,5 +62,5 @@ pkg_postinst() {
 	elog "FNF has been installed to /usr/share/games/Funkin. You may cd"
 	elog "into this directory to run the game."
 	elog
-	elog "Also, ignore the USE flags. They're just aesthetic placeholders."
+	elog "If you want UTAU covers, enable the utau USE flag."
 }

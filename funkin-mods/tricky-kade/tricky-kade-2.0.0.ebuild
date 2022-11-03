@@ -33,10 +33,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/tricky-kade"
-	insinto "/usr/share/games/tricky-kade"
+	keepdir "/usr/games/tricky-kade"
+	insinto "/usr/games/tricky-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/share/games."
+	elog "You can find the mod in /usr/games."
 }

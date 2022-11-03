@@ -34,8 +34,8 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/share/games/DDT"
-	insinto "/usr/share/games/DDT"
+	keepdir "/usr/games/DDT"
+	insinto "/usr/games/DDT"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {

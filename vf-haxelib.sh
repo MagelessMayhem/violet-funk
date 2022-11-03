@@ -1,7 +1,8 @@
 #!/bin/bash
 # Execute as sudo/root, otherwise this will not work
 # Make sure to execute vf-conf.sh after this to create the portage directory
-if [ $(id -u) > 0 ]; then
+currentid=$(id -u)
+if [ "$currentid" != 0 ]; then
   echo "Please run this script as root/sudo."
   exit 1
 fi

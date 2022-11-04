@@ -5,8 +5,10 @@ given_dir = input()
 output = Popen(["whoami"],stdout=PIPE)
 result = output.communicate()
 current_user = result[0].decode("utf-8").split()[0]
+print(current_user)
 if os.path.exists("/usr/share/games/" + given_dir):
     print("Granting ownership.")
+    print("sudo chown " + current_user + " /usr/share/games/" + given_dir + "/*")
     os.system("sudo chown " + current_user + " /usr/share/games/" + given_dir + "/*")
 
 print("You should now own the folder.")

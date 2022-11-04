@@ -34,4 +34,6 @@ haxelib run lime rebuild tentools linux
 haxelib git systools https://github.com/waneck/systools
 haxelib run lime rebuild systools linux
 haxelib install hxp
+haxelib git HaxeVLC https://github.com/MagelessMayhem/HaxeVLC-Gentoo
+haxelib run lime rebuild HaxeVLC linux
 echo "If any ebuild fails due to a polymod error, try an earlier version of polymod. Other than that, we're finished. I'll quit out of here."

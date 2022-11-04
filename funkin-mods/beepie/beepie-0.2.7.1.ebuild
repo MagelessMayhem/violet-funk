@@ -9,7 +9,7 @@ HOMEPAGE="https://github.com/BRN101/Vs_Beepie_master"
 
 SRC_URI="https://github.com/MagelessMayhem/Beepie-Gentoo/archive/refs/tags/v0.2.7.1-beepie.tar.gz"
 
-S="${WORKDIR}/Beepie-Gentoo-0.2.7.1"
+S="${WORKDIR}/Beepie-Gentoo-0.2.7.1-beepie"
 
 LICENSE="Apache-2.0"
 

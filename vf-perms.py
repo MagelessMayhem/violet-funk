@@ -6,6 +6,7 @@ given_dir = input()
 print(os.system("whoami"))
 
 if os.path.exists("/usr/share/games/" + given_dir):
+    print("Granting ownership.")
     os.system("sudo chown $(whoami) /usr/share/games/" + given_dir + "/*")
 
 print("You should now own the folder.")

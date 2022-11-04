@@ -9,7 +9,7 @@ DESCRIPTION="A rhythm game made with HaxeFlixel"
 HOMEPAGE="https://ninja-muffin24.itch.io/funkin"
 # This tarball contains an hscript fix that allows FNF to compile properly
 SRC_URI="
-	https://github.com/MagelessMayhem/Funkin/archive/refs/tags/v0.2.7.1.tar.gz
+	https://github.com/MagelessMayhem/Funkin/archive/refs/tags/v0.2.7.1-vanilla.tar.gz
 	utau? ( https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1u/utau-covers.tar.gz )
 	"
 
@@ -61,8 +61,11 @@ src_install() {
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "FNF has been installed to /usr/share/games/Funkin. You may cd"
-	elog "into this directory to run the game."
+	elog "FNF has been installed to /usr/share/games/Funkin."
+	elog 
+	elog "You may need to run this command to run it:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 	elog
 	elog "If you want UTAU covers, enable the utau USE flag and"
 	elog "remerge this package."

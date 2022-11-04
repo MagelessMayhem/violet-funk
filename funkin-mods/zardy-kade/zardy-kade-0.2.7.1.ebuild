@@ -5,7 +5,7 @@
 # Please refer to Kade's compilation instructions to fetch the proper libraries.
 EAPI=8
 
-DESCRIPTION="Scarecrow yells at child for 10 minutes"
+DESCRIPTION="FNF mod based around a scarecrow and his cablestand"
 
 HOMEPAGE="https://github.com/KadeDev/Vs-Zardy"
 
@@ -32,10 +32,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/zardy-kade"
-	insinto "/usr/games/zardy-kade"
+	keepdir "/usr/share/games/zardy-kade"
+	insinto "/usr/share/games/zardy-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/games."
+	elog "You can find the mod in /usr/share/games."
 }

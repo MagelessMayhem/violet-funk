@@ -3,7 +3,8 @@ from subprocess import Popen,PIPE
 print("Name of directory in /usr/share/games to grant user access to?")
 given_dir = input()
 output = Popen(["whoami"],stdout=PIPE)
-current_user = output.communicate().index("wizard").split()
+result = output.communicate()
+current_user = result[0]
 if os.path.exists("/usr/share/games/" + given_dir):
     print("Granting ownership.")
     os.system("sudo chown " + current_user + " /usr/share/games/" + given_dir + "/*")

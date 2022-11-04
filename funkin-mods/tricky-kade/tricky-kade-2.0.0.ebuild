@@ -5,7 +5,7 @@
 # Please refer to Kade's compilation instructions to fetch the necessary libraries.
 EAPI=8
 
-DESCRIPTION="Meanwhile, somewhere in Nevada..."
+DESCRIPTION="FNF mod based on Madness Combat's Tricky"
 
 HOMEPAGE="https://github.com/KadeDev/trickster"
 
@@ -33,10 +33,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/tricky-kade"
-	insinto "/usr/games/tricky-kade"
+	keepdir "/usr/share/games/tricky-kade"
+	insinto "/usr/share/games/tricky-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/games."
+	elog "You can find the mod in /usr/share/games."
 }

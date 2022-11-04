@@ -33,8 +33,8 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/Funkin-Dave"
-	insinto "/usr/games/Funkin-Dave"
+	keepdir "/usr/share/games/Funkin-Dave"
+	insinto "/usr/share/games/Funkin-Dave"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {

@@ -5,7 +5,7 @@
 # Please refer to Kade's compilation instructions to fetch the proper dependencies.
 EAPI=8
 
-DESCRIPTION="Oh, he's flippin' out"
+DESCRIPTION="Kade Engine mod based on Flippy, a character from Happy Tree Friends"
 HOMEPAGE="https://github.com/Yirius125/FNF-VsFliqpy-1.5-Full-Week-Engine"
 SRC_URI="https://github.com/MagelessMayhem/fliqpy-kade/archive/refs/tags/v0.2.7.1.tar.gz"
 
@@ -30,10 +30,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/fliqpy-kade"
-	insinto "/usr/games/fliqpy-kade"
+	keepdir "/usr/share/games/fliqpy-kade"
+	insinto "/usr/share/games/fliqpy-kade"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/games."
+	elog "You can find the mod in /usr/share/games."
 }

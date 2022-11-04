@@ -10,6 +10,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 DEPEND="
+	funkin-mods/beepie
 	funkin-mods/cyber-sensation
 	funkin-mods/ddt-be
 	funkin-mods/ddt

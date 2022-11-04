@@ -5,7 +5,7 @@
 # Please refer to Psych's compilation instructions.
 EAPI=8
 
-DESCRIPTION="Hi, Jon."
+DESCRIPTION="FNF Psych Engine mod based on Gorefield"
 
 HOMEPAGE="https://github.com/JoseXD2/FNF-Vs-Gorefield"
 
@@ -33,10 +33,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/FNF-Gorefield"
-	insinto "/usr/games/FNF-Gorefield"
+	keepdir "/usr/share/games/FNF-Gorefield"
+	insinto "/usr/share/games/FNF-Gorefield"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/games."
+	elog "You can find the mod in /usr/share/games."
 }

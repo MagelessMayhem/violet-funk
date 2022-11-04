@@ -34,10 +34,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/Cyber-Sensation"
-	insinto "/usr/games/Cyber-Sensation"
+	keepdir "/usr/share/games/Cyber-Sensation"
+	insinto "/usr/share/games/Cyber-Sensation"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod under /usr/games."
+	elog "You can find the mod under /usr/share/games."
 }

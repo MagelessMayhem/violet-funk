@@ -4,7 +4,7 @@
 # Wednesday's Infidelity is based on Psych Engine and requires Psych's dependencies.
 EAPI=8
 
-DESCRIPTION="The second part to WI"
+DESCRIPTION="Linux port of Wednesday's Infidelity"
 
 HOMEPAGE="https://github.com/lunarcleint/Wednesdays-Infidelity"
 
@@ -31,10 +31,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/Wednesdays-Infidelity"
-	insinto "/usr/games/Wednesdays-Infidelity"
+	keepdir "/usr/share/games/Wednesdays-Infidelity"
+	insinto "/usr/share/games/Wednesdays-Infidelity"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod under /usr/games."
+	elog "You can find the mod under /usr/share/games."
 }

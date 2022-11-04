@@ -39,4 +39,8 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
+	elog
+	elog "If you received a QA notice regarding linc_luajit,"
+	elog "this is safe to ignore. The mod runs fine despite"
+	elog "the warning."
 }

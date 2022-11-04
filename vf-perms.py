@@ -14,6 +14,6 @@ if os.path.exists("/usr/share/games/" + given_dir):
     print("sudo chown -R " + current_user + " /usr/share/games/" + given_dir)
     os.system("sudo chown -R " + current_user + " /usr/share/games/" + given_dir)
 else:
-    raise NotADirectoryError("Could not find " + given_dir + ". Did you spell it correctly, or have you not installed the game/mod yet?")
+    raise NotADirectoryError("Could not find " + given_dir + ". Did you spell it correctly, or have you not installed the game/mod yet? Some ebuilds also use alternate directory names, so try using ls on /usr/share/games.")
 
 print("You should now own the folder.")

@@ -5,7 +5,7 @@
 # Refer to Psych Engine's compilation instructions.
 EAPI=8
 
-DESCRIPTION="Linux port of MCM V1"
+DESCRIPTION="FNF mod based on Red Mist and surrounding media"
 
 HOMEPAGE="https://github.com/pahaze/Mistful-Crimson-Morning"
 

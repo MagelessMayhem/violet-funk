@@ -10,7 +10,7 @@ DESCRIPTION="Dave Engine, a fork of Kade Engine"
 HOMEPAGE="https://github.com/MoldyGH/VsDave"
 
 # Contains an hscript fix
-SRC_URI="https://github.com/MagelessMayhem/funkin-dave/archive/refs/tags/v3.0.0.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/funkin-dave/archive/refs/tags/v3.0.0-dave.tar.gz"
 
 S="${WORKDIR}/funkin-dave-3.0.0"
 
@@ -38,7 +38,11 @@ src_install() {
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find this build in /usr/games."
+	elog "You can find this build in /usr/share/games."
+	elog
+	elog "You may also need to run this command to execute the mod:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 	elog
 	elog "Huge shoutout to MoldyGH for giving his engine"
 	elog "official Linux support. It made this ebuild more"

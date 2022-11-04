@@ -32,10 +32,10 @@ src_compile() {
 	haxelib run lime build linux -verbose
 }
 src_install() {
-	keepdir "/usr/games/FNF-Jerry"
-	insinto "/usr/games/FNF-Jerry"
+	keepdir "/usr/share/games/FNF-Jerry"
+	insinto "/usr/share/games/FNF-Jerry"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "You can find the mod in /usr/games."
+	elog "You can find the mod in /usr/share/games."
 }

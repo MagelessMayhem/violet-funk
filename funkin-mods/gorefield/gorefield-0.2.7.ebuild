@@ -9,9 +9,9 @@ DESCRIPTION="FNF Psych Engine mod based on Gorefield"
 
 HOMEPAGE="https://github.com/JoseXD2/FNF-Vs-Gorefield"
 
-SRC_URI="https://github.com/MagelessMayhem/gorefield/archive/refs/tags/v0.2.7.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/gorefield/archive/refs/tags/v0.2.7-gorefield.tar.gz"
 
-S="${WORKDIR}/gorefield-0.2.7"
+S="${WORKDIR}/gorefield-0.2.7-gorefield"
 
 LICENSE="Apache-2.0"
 
@@ -39,4 +39,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

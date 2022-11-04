@@ -7,9 +7,9 @@ DESCRIPTION="Forever Engine port of Hypno's Lullaby"
 HOMEPAGE="https://github.com/MAJigsaw77/Lullaby-Forever"
 
 # Contains an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/archive/refs/tags/v2.0.0.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/archive/refs/tags/v2.0.0-lullaby.tar.gz"
 
-S="${WORKDIR}/Lullaby-Forever-2.0.0"
+S="${WORKDIR}/Lullaby-Forever-2.0.0-lullaby"
 
 LICENSE="Apache-2.0"
 
@@ -38,4 +38,10 @@ src_install() {
 }
 pkg_postinst() {
 	elog "The mod can be found under /usr/share/games."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+
 }

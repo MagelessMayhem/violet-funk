@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based on Red Mist and surrounding media"
 
 HOMEPAGE="https://github.com/pahaze/Mistful-Crimson-Morning"
 
-SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/archive/refs/tags/v0.2.7.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/archive/refs/tags/v0.2.7-mcm.tar.gz"
 
-S="${WORKDIR}/mcm-gentoo-0.2.7"
+S="${WORKDIR}/mcm-gentoo-0.2.7-mcm"
 
 LICENSE="Apache-2.0"
 
@@ -43,4 +43,10 @@ pkg_postinst() {
 	elog "If you received a QA notice regarding linc_luajit,"
 	elog "this is safe to ignore. The mod runs fine despite"
 	elog "the warning."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+
 }

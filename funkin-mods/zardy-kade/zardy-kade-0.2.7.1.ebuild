@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based around a scarecrow and his cablestand"
 
 HOMEPAGE="https://github.com/KadeDev/Vs-Zardy"
 
-SRC_URI="https://github.com/MagelessMayhem/zardy-kade/archive/refs/tags/v0.2.7.1.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/zardy-kade/archive/refs/tags/v0.2.7.1-zardy.tar.gz"
 
-S="${WORKDIR}/zardy-kade-0.2.7.1"
+S="${WORKDIR}/zardy-kade-0.2.7.1-zardy"
 
 LICENSE="Apache-2.0"
 
@@ -38,4 +38,10 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+
 }

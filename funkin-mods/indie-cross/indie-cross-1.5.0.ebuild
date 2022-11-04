@@ -8,9 +8,9 @@ DESCRIPTION="FNF mod collaboration between iconic Indie characters"
 
 HOMEPAGE="https://github.com/brightfyregit/Indie-Cross-Public"
 
-SRC_URI="https://github.com/MagelessMayhem/indie-cross/archive/refs/tags/v1.5.0.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/indie-cross/archive/refs/tags/v1.5.0-indie.tar.gz"
 
-S="${WORKDIR}/indie-cross-1.5.0"
+S="${WORKDIR}/indie-cross-1.5.0-indie"
 
 LICENSE="Apache-2.0"
 
@@ -38,4 +38,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

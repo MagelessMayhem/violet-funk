@@ -10,9 +10,9 @@ DESCRIPTION="FNF mod based on Madness Combat's Tricky"
 HOMEPAGE="https://github.com/KadeDev/trickster"
 
 # Fork which contains an hscript fix
-SRC_URI="https://github.com/MagelessMayhem/tricky-kade/archive/refs/tags/v2.0.0.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/tricky-kade/archive/refs/tags/v2.0.0-tricky.tar.gz"
 
-S="${WORKDIR}/tricky-kade-2.0.0"
+S="${WORKDIR}/tricky-kade-2.0.0-tricky"
 
 LICENSE="Apache-2.0"
 
@@ -39,4 +39,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
+	elog
+        elog "You may also want to run this command to be able"
+        elog "to run the mod:"
+        elog
+        elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

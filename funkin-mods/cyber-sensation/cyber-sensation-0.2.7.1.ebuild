@@ -9,9 +9,9 @@ DESCRIPTION="Explore the cyber world...where someone awaits."
 HOMEPAGE="https://github.com/TaeYai/Cyber-Sensation"
 
 # Contains an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/archive/refs/tags/v0.2.7.1.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/archive/refs/tags/v0.2.7.1-taeyai.tar.gz"
 
-S="${WORKDIR}/Cyber-Sensation-0.2.7.1"
+S="${WORKDIR}/Cyber-Sensation-0.2.7.1-taeyai"
 
 LICENSE="Apache-2.0"
 
@@ -40,4 +40,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
+	elog
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based on Jerry's Basement"
 
 HOMEPAGE="https://github.com/JoseXD2/Jerry"
 
-SRC_URI="https://github.com/MagelessMayhem/jerry/archive/refs/tags/v0.2.7.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/jerry/archive/refs/tags/v0.2.7-jerry.tar.gz"
 
-S="${WORKDIR}/jerry-0.2.7"
+S="${WORKDIR}/jerry-0.2.7-jerry"
 
 LICENSE="Apache-2.0"
 
@@ -38,4 +38,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
+	elog
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

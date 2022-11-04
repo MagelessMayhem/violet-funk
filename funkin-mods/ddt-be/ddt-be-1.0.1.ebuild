@@ -9,9 +9,9 @@ DESCRIPTION="Play with me, it's all I have."
 
 HOMEPAGE="https://github.com/Dxgamer7405/Doki-Doki-Takeover-BAD-ENDING"
 
-SRC_URI="https://github.com/MagelessMayhem/ddt-be/archive/refs/tags/v1.0.1.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/ddt-be/archive/refs/tags/v1.0.1-ddt-be.tar.gz"
 
-S="${WORKDIR}/ddt-be-1.0.1"
+S="${WORKDIR}/ddt-be-1.0.1-ddt-be"
 
 LICENSE="Apache-2.0"
 
@@ -38,4 +38,9 @@ src_install() {
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
+	elog
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }

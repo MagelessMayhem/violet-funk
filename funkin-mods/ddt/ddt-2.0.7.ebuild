@@ -11,9 +11,9 @@ DESCRIPTION="The takeover you've been waiting for"
 HOMEPAGE="https://github.com/Jorge-SunSpirit/Doki-Doki-Takeover"
 
 # Contains hscript fix + proper Lua modchart setting for Gentoo. Also disables GameJolt integration since it's ultimately unneeded.
-SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/archive/refs/tags/v2.0.7.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/archive/refs/tags/v2.0.7-ddt.tar.gz"
 
-S="${WORKDIR}/Doki-Doki-Takeover-2.0.7"
+S="${WORKDIR}/Doki-Doki-Takeover-2.0.7-ddt"
 
 LICENSE="Apache-2.0"
 
@@ -40,5 +40,10 @@ src_install() {
 }
 pkg_postinst() {
 	elog "The mod can be found under /usr/share/games."
+	elog
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
 }
 

@@ -56,12 +56,12 @@ src_compile() {
 
 }
 src_install() {
-	keepdir "/usr/games/Funkin"
-	insinto "/usr/games/Funkin"
+	keepdir "/usr/share/games/Funkin"
+	insinto "/usr/share/games/Funkin"
 	doins -r "export/release/linux/bin"
 }
 pkg_postinst() {
-	elog "FNF has been installed to /usr/games/Funkin. You may cd"
+	elog "FNF has been installed to /usr/share/games/Funkin. You may cd"
 	elog "into this directory to run the game."
 	elog
 	elog "If you want UTAU covers, enable the utau USE flag and"

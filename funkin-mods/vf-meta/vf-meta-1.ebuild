@@ -4,8 +4,6 @@
 EAPI=8
 
 DESCRIPTION="Metapackage for FNF mods"
-HOMEPAGE=""
-SRC_URI=""
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64"

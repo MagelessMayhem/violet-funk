@@ -41,5 +41,5 @@ pkg_postinst() {
 	elog "Preferably, you may also run the following"
 	elog "command to be able to run the mod:"
 	elog
-	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+	elog "sudo chown -R <username> /usr/share/games/FNF-Beepie"
 }

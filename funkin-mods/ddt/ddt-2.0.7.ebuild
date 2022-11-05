@@ -44,6 +44,6 @@ pkg_postinst() {
 	elog "You may also want to run this command to be able"
 	elog "to run the mod:"
 	elog
-	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+	elog "sudo chown -R <username> /usr/share/games/DDT"
 }
 

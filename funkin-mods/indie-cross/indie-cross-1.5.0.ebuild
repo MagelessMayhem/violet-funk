@@ -43,6 +43,9 @@ pkg_postinst() {
     elog "performance issues if your system doesn't"
     elog "meet this criteria."
     elog
+    elog "The QA notice may also be ignored. The mod"
+    elog "uses its own libvlccore.so.7."
+    elog
     elog "You may also want to run this command to"
     elog "be able to run the mod:"
     elog

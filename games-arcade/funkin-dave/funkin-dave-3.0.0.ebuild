@@ -42,7 +42,7 @@ pkg_postinst() {
 	elog
 	elog "You may also need to run this command to execute the mod:"
 	elog
-	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+	elog "sudo chown -R <username> /usr/share/games/Funkin-Dave"
 	elog
 	elog "Huge shoutout to MoldyGH for giving his engine"
 	elog "official Linux support. It made this ebuild more"

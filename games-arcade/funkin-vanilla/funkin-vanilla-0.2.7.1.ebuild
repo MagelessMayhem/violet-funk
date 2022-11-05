@@ -65,7 +65,7 @@ pkg_postinst() {
 	elog 
 	elog "You may need to run this command to run it:"
 	elog
-	elog "python3 /var/db/repos/violet-funk/vf-perms.py"
+	elog "sudo chown -R <username> /usr/share/games/Funkin"
 	elog
 	elog "If you want UTAU covers, enable the utau USE flag and"
 	elog "remerge this package."

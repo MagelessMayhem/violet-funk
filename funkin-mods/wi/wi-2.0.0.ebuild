@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}"
 src_compile() {
     haxelib setup /var/tmp/portage/.local/share/haxe/lib
     cd ${S}
-    lime build linux -verbose
+    haxelib run lime build linux -verbose
 }
 src_install() {
     keepdir "/usr/share/games/Wednesdays-Infidelity"

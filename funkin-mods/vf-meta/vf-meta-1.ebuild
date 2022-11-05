@@ -16,11 +16,9 @@ DEPEND="
 	funkin-mods/ddt
 	funkin-mods/fliqpy-kade
 	funkin-mods/gorefield
-	funkin-mods/indie-cross
 	funkin-mods/jerry
 	funkin-mods/lullaby
 	funkin-mods/mcm
 	funkin-mods/tricky-kade
-	funkin-mods/wi
 	funkin-mods/zardy-kade
 "

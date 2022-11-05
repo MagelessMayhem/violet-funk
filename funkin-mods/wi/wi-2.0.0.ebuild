@@ -46,5 +46,5 @@ pkg_postinst() {
     elog "Also, to be able to run the mod, you can use"
     elog "the following command:"
     elog
-    elog "sudo chown -R <username> /usr/share/games/Wednesday's Infidelity"
+    elog "sudo chown -R <username> /usr/share/games/Wednesdays-Infidelity"
 }

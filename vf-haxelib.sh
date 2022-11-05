@@ -18,7 +18,7 @@ haxelib git polymod https://github.com/larsiusprime/polymod.git
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
 haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
 haxelib run lime rebuild hxCodec linux
-haxelib install flxanimate
+haxelib install flxanimate 1.2.0
 haxelib install openfl
 haxelib install actuate
 haxelib run lime setup flixel

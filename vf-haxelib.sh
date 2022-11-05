@@ -16,8 +16,8 @@ haxelib install hxcpp
 haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons
 haxelib git polymod https://github.com/larsiusprime/polymod.git
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-haxelib install hxCodec 2.5.1
-haxelib run lime rebuild hxCodec linux
+wget https://github.com/MagelessMayhem/hxCodec/releases/download/v2.5.1/hxCodec-custom.zip -O /tmp/hxCodec-custom.zip
+haxelib install /tmp/hxCodec-custom.zip
 haxelib install flxanimate 1.2.0
 haxelib install openfl
 haxelib install actuate

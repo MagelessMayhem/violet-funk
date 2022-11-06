@@ -11,6 +11,8 @@ SRC_URI="https://github.com/MagelessMayhem/FNF-Soft-Gentoo/archive/refs/tags/v0.
 
 S="${WORKDIR}/FNF-Soft-Gentoo-0.2.7.1-soft"
 
+LICENSE="Apache-2.0"
+
 SLOT="0"
 
 KEYWORDS="~amd64"

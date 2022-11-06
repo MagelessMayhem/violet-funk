@@ -11,6 +11,8 @@ SRC_URI="https://github.com/MagelessMayhem/Violet-IC/archive/refs/tags/v1.5.0-ic
 
 S="${WORKDIR}/Violet-IC-1.5.0-ic"
 
+LICENSE="Apache-2.0"
+
 SLOT="0"
 
 KEYWORDS="~amd64"

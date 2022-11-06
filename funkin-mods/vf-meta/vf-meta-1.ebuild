@@ -19,6 +19,7 @@ DEPEND="
 	funkin-mods/jerry
 	funkin-mods/lullaby
 	funkin-mods/mcm
+	funkin-mods/sunday
 	funkin-mods/tricky-kade
 	funkin-mods/wi
 	funkin-mods/zardy-kade

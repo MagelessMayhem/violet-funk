@@ -7,7 +7,6 @@ if [ "$currentid" != 0 ]; then
 fi
 
 echo "Creating Haxelib directory for the portage user."
-sleep 1
 mkdir -p /var/tmp/portage/.local/share/haxe/
 cp -r /usr/share/haxe/lib /var/tmp/portage/.local/share/haxe
 echo "Done. The portage user's Haxelib directory is now /var/tmp/portage/.local/share/haxe/lib."

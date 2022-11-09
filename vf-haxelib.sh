@@ -34,4 +34,10 @@ haxelib run lime rebuild tentools linux
 haxelib git systools https://github.com/waneck/systools
 haxelib run lime rebuild systools linux
 haxelib install hxp
+echo "Assuming NekoVM has control of /usr/bin/haxelib. I will move the correct haxelib (/usr/local/bin/haxelib) to /usr/bin."
+sleep 1
+rm -v /usr/bin/haxelib
+sleep 1
+ln -sv /usr/local/bin/haxelib /usr/bin/haxelib
+sleep 1
 echo "If any ebuild fails due to a polymod error, try an earlier version of polymod. Other than that, we're finished. I'll quit out of here."

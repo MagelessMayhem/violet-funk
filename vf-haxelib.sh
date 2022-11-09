@@ -15,7 +15,7 @@ sleep 1
 echo "Now I'll tell haxelib to install the proper libraries for you."
 sleep 1
 haxelib setup /usr/share/haxe/lib
-haxelib install newgrounds
+haxelib install newgrounds 1.1.5
 haxelib install lime
 haxelib install flixel
 haxelib install flixel-ui

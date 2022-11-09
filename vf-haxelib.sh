@@ -6,6 +6,14 @@ if [ "$currentid" != 0 ]; then
   echo "Please run this script as root/sudo."
   exit 1
 fi
+echo "Assuming NekoVM has control of /usr/bin/haxelib. I will move the correct haxelib (/usr/local/bin/haxelib) to /usr/bin."
+sleep 1
+rm -v /usr/bin/haxelib
+sleep 1
+ln -sv /usr/local/bin/haxelib /usr/bin/haxelib
+sleep 1
+echo "Now I'll tell haxelib to install the proper libraries for you."
+sleep 1
 haxelib setup /usr/share/haxe/lib
 haxelib install newgrounds
 haxelib install lime
@@ -34,10 +42,8 @@ haxelib run lime rebuild tentools linux
 haxelib git systools https://github.com/waneck/systools
 haxelib run lime rebuild systools linux
 haxelib install hxp
-echo "Assuming NekoVM has control of /usr/bin/haxelib. I will move the correct haxelib (/usr/local/bin/haxelib) to /usr/bin."
+echo "Now copying libidn. This is necessary for Wednesday's Infidelity (funkin-mods/wi) to build."
 sleep 1
-rm -v /usr/bin/haxelib
-sleep 1
-ln -sv /usr/local/bin/haxelib /usr/bin/haxelib
+cp -v /usr/share/haxe/lib/hxcodec/2,5,1/lib/vlc/lib/Linux/libidn.so.11 /usr/lib64
 sleep 1
 echo "If any ebuild fails due to a polymod error, try an earlier version of polymod. Other than that, we're finished. I'll quit out of here."

@@ -12,7 +12,7 @@ haxelib install lime
 haxelib install flixel
 haxelib install flixel-ui
 haxelib install hscript
-haxelib install hxcpp
+haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
 haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons
 haxelib git polymod https://github.com/larsiusprime/polymod.git
 haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc

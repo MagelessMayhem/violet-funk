@@ -42,6 +42,7 @@ BDEPEND="
 	dev-ml/camlp5
 	dev-ml/dune
 	dev-ml/findlib
+	dev-lang/neko
 "
 
 #QA_FLAGS_IGNORED="usr/bin/haxelib"

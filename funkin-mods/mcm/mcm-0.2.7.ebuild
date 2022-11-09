@@ -23,7 +23,7 @@ RDEPEND="
 	dev-lang/luajit
 	media-sound/pulseaudio
 	x11-libs/libX11
-	dev-lang/haxe
+	=dev-lang/haxe-9999
 "
 DEPEND="${RDEPEND}"
 

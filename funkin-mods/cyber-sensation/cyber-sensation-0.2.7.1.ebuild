@@ -19,8 +19,16 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+IUSE="
+	+alsa
+	pulseaudio
+	pipewire
+"
+
 RDEPEND="
-	media-sound/pulseaudio
+	alsa? ( media-sound/alsa-lib )
+	pulseaudio? ( media-sound/pulseaudio[daemon(+)] )
+	pipewire? ( media-sound/pulseaudio[daemon(-)] media-video/pipewire[sound-server(+)] )
 	x11-libs/libX11
 	=dev-lang/haxe-9999
 "

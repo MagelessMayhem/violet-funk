@@ -20,7 +20,6 @@ KEYWORDS="~amd64"
 IUSE="
 	+alsa
 	pulseaudio
-	pipewire
 "
 
 RDEPEND="

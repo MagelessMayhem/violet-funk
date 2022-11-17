@@ -24,7 +24,7 @@ IUSE="
 "
 
 RDEPEND="
-	alsa? ( media-sound/alsa-lib )
+	alsa? ( media-libd/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio[daemon(+)] )
 	pipewire? ( media-sound/pulseaudio[daemon(-)] media-video/pipewire[sound-server(+)] )
 	x11-libs/libX11

@@ -25,11 +25,7 @@ IUSE="
 
 RDEPEND="
 	alsa? ( media-libs/alsa-lib )
-	pulseaudio? ( media-sound/pulseaudio[daemon] )
-	pipewire? ( 
-		media-sound/pulseaudio[-daemon]
-		media-video/pipewire[sound-server]
-	)
+	pulseaudio? ( media-sound/pulseaudio )
 	x11-libs/libX11
 	=dev-lang/haxe-9999
 "

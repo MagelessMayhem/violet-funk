@@ -22,11 +22,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="
+	+alsa
+	pulseaudio
+	pipewire
 	utau
 "
-
+# Cannot have both pulseaudio and pipewire USE enabled, for the following reason:
+# pulseaudio USE pulls in media-sound/pulseaudio +daemon.
+# pipewire USE pulls in media-sound/pulseaudio -daemon and media-video/pipewire +sound-server.
 RDEPEND="
-	media-sound/pulseaudio
+	alsa? ( media-sound/alsa-lib )
+	pulseaudio? ( media-sound/pulseaudio[daemon(+)] )
+	pipewire? ( media-sound/pulseaudio[daemon(-)] media-video/pipewire[sound-server(+)] )
 	x11-libs/libX11
 	=dev-lang/haxe-9999
 "

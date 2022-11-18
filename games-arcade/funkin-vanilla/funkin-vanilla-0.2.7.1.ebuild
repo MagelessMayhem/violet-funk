@@ -24,49 +24,22 @@ KEYWORDS="~amd64"
 IUSE="
 		+X
 		+alsa
-		discord-integration
-		jack
-		pulse-standalone
-		pipewire
-		tools
-		utau
+		pulseaudio
 "
-DEPEND="
-		X? (
-			x11-base/xorg-server
-			x11-libs/libX11
-			x11-base/xorg-drivers
-		)
+# x11-base/xorg-server pulls in x11-libs/libX11, which is what FNF needs to run.
+# This will also pull in x11-base/xorg-drivers, allowing you to run the game seamlessly.
+RDEPEND="
+		X? ( x11-base/xorg-server )
 		alsa? ( media-libs/alsa-lib )
-		discord-integration? (
-			net-im/discord-bin
-			x11-misc/xdg-utils
-		)
-		pulse-standalone? (
-			!pipewire? (
-				media-sound/pulseaudio[daemon]
-			)
-		)
-		pipewire? (
-			pulse-standalone? (
-				media-video/pipewire[-sound-server]
-				media-sound/pulseaudio[daemon]
-			)
-			!pulse-standalone? (
-				media-video/pipewire[sound-server]
-				media-sound/pulseaudio[-daemon]
-			)
-		)
-		tools? (
-			jack? ( media-sound/jack2 )
-			media-sound/lmms
-		)
+		pulseaudio? ( media-sound/pulseaudio )
 "
-
 DEPEND="
 	${RDEPEND}
 "
-
+BDEPEND="
+	=dev-lang/haxe-9999
+	sys-devel/gcc
+"
 # Implement a dummy template Haxe file; the game will not compile without it. This is also mentioned in the Funkin compilation instructions.
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib

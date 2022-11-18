@@ -22,16 +22,45 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="
-	+alsa
-	pulseaudio
-	utau
+		+X
+		+alsa
+		discord-integration
+		jack
+		pulse-standalone
+		pipewire
+		tools
+		utau
 "
-
-RDEPEND="
-	alsa? ( media-libs/alsa-lib )
-	pulseaudio? ( media-sound/pulseaudio )
-	x11-libs/libX11
-	=dev-lang/haxe-9999
+DEPEND="
+		X? (
+			x11-base/xorg-server
+			x11-libs/libX11
+			x11-base/xorg-drivers
+		)
+		alsa? ( media-libs/alsa-lib )
+		discord-integration? (
+			net-im/discord-bin
+			x11-misc/xdg-utils
+		)
+		pulse-standalone? (
+			!pipewire? (
+				media-sound/pulseaudio[daemon]
+			)
+		)
+		pipewire? (
+			pulse-standalone? (
+				media-video/pipewire[-sound-server]
+				media-sound/pulseaudio[daemon]
+			)
+			!pulse-standalone? (
+				media-video/pipewire[sound-server]
+				media-sound/pulseaudio[-daemon]
+			)
+		)
+		tools? (
+			jack? ( media-sound/jack2 )
+			media-sound/lmms
+		)
 "
 
 DEPEND="

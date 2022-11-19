@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/MoldyGH/VsDave"
 # Contains an hscript fix
 SRC_URI="https://github.com/MagelessMayhem/funkin-dave/archive/refs/tags/v3.0.0-dave.tar.gz"
 
-S="${WORKDIR}/funkin-dave-3.0.0"
+S="${WORKDIR}/funkin-dave-3.0.0-dave"
 
 LICENSE="Apache-2.0"
 

@@ -20,20 +20,25 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="
+	+X
 	+alsa
 	pulseaudio
 "
 
 RDEPEND="
+	X? ( x11-base/xorg-server )
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio )
-	x11-libs/libX11
-	=dev-lang/haxe-9999
 "
 
 DEPEND="
 	${RDEPEND}
 "
+BDEPEND="
+	=dev-lang/haxe-9999
+	sys-devel/gcc
+"
+
 src_compile() {
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
 	cd ${S}

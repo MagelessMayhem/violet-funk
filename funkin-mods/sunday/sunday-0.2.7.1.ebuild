@@ -7,9 +7,9 @@ DESCRIPTION="FNF mod by bbpanzu based on a wannabe rockstar"
 
 HOMEPAGE="https://github.com/bbpanzu/FNF-Sunday"
 
-SRC_URI="https://github.com/MagelessMayhem/Violet-Sunday/archive/refs/tags/v0.2.7.1-sunday.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Violet-Sunday/releases/download/v0.2.7.1-RELEASE/Violet-Sunday.tar.gz"
 
-S="${WORKDIR}/Violet-Sunday-0.2.7.1-sunday"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -30,23 +30,13 @@ RDEPEND="
 "
 
 DEPEND="
-        dev-lang/luajit
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-    haxelib setup /var/tmp/portage/.local/share/haxe/lib/
-    cd ${S}
-    haxelib run lime build linux -verbose
-}
 src_install() {
     keepdir "/usr/share/games/FNF-Sunday"
     insinto "/usr/share/games/FNF-Sunday"
-    doins -r "export/release/linux/bin"
+    doins -r "Violet-Sunday/bin"
 }
 pkg_postinst() {
     elog "You can find the mod in /usr/share/games."

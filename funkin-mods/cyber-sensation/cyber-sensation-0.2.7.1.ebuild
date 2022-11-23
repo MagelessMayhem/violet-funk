@@ -37,7 +37,7 @@ DEPEND="
 src_install() {
 	keepdir "/usr/share/games/Cyber-Sensation"
 	insinto "/usr/share/games/Cyber-Sensation"
-	doins -r "export/release/linux/bin"
+	doins -r "Cyber-Sensation/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."

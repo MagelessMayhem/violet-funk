@@ -8,10 +8,10 @@ EAPI=8
 DESCRIPTION="Explore the cyber world...where someone awaits."
 HOMEPAGE="https://github.com/TaeYai/Cyber-Sensation"
 
-# Contains an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/archive/refs/tags/v0.2.7.1-taeyai.tar.gz"
+# Built with an hscript fix.
+SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/releases/download/v0.2.7.1-RELEASE/Cyber-Sensation.tar.gz"
 
-S="${WORKDIR}/Cyber-Sensation-0.2.7.1-taeyai"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -34,16 +34,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
-
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/Cyber-Sensation"
 	insinto "/usr/share/games/Cyber-Sensation"

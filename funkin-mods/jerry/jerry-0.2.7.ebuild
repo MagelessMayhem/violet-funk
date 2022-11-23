@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based on Jerry's Basement"
 
 HOMEPAGE="https://github.com/JoseXD2/Jerry"
 
-SRC_URI="https://github.com/MagelessMayhem/jerry/archive/refs/tags/v0.2.7-jerry.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/jerry/releases/download/v0.2.7-RELEASE/Violet-Jerry.tar.gz"
 
-S="${WORKDIR}/jerry-0.2.7-jerry"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -33,20 +33,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
-
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/FNF-Jerry"
 	insinto "/usr/share/games/FNF-Jerry"
-	doins -r "export/release/linux/bin"
+	doins -r "Violet-Jerry/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."

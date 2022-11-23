@@ -7,9 +7,9 @@ DESCRIPTION="Linux port of Wednesday's Infidelity"
 
 HOMEPAGE="https://github.com/MagelessMayhem/WI-Gentoo"
 
-SRC_URI="https://github.com/MagelessMayhem/WI-Gentoo/archive/refs/tags/v2.0.0-wi.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/WI-Gentoo/releases/download/v2.0.0-RELEASE/WI-Gentoo.tar.gz"
 
-S="${WORKDIR}/WI-Gentoo-2.0.0-wi"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -32,20 +32,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
-
-src_compile() {
-    haxelib setup /var/tmp/portage/.local/share/haxe/lib
-    cd ${S}
-    haxelib run lime build linux -verbose
-}
 src_install() {
     keepdir "/usr/share/games/Wednesdays-Infidelity"
     insinto "/usr/share/games/Wednesdays-Infidelity"
-    doins -r "export/release/linux/bin"
+    doins -r "WI-Gentoo/bin"
 }
 pkg_postinst() {
     elog "You can find the mod in /usr/share/games."

@@ -14,3 +14,5 @@ Next, merge this overlay's Haxe ebuild to merge the correct haxelib:
 After Haxe has been merged, run `/var/db/repos/violet-funk/vf-haxelib.sh` and `/var/db/repos/violet-funk/vf-conf.sh` respectively. These scripts install the necessary Haxe libraries and create the directory the ebuilds use to build FNF and/or FNF mods.
 
 After you've done all this, you're set! You can merge any FNF ebuild to your heart's content.
+
+**Note:** This overlay's ebuilds are currently in the process of being migrated to binaries. The change will be gradual but noticeable.

@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based around a scarecrow and his cablestand"
 
 HOMEPAGE="https://github.com/KadeDev/Vs-Zardy"
 
-SRC_URI="https://github.com/MagelessMayhem/zardy-kade/archive/refs/tags/v0.2.7.1-zardy.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/zardy-kade/releases/download/v0.2.7.1-RELEASE/zardy-kade.tar.gz"
 
-S="${WORKDIR}/zardy-kade-0.2.7.1-zardy"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -34,27 +34,17 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/zardy-kade"
 	insinto "/usr/share/games/zardy-kade"
-	doins -r "export/release/linux/bin"
+	doins -r "Violet-Zardy/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
 	elog
-        elog "You may also want to run this command to be able"
-        elog "to run the mod:"
-        elog
-        elog "sudo chown -R <username> /usr/share/games/zardy-kade"
-
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "sudo chown -R <username> /usr/share/games/zardy-kade"
 }

@@ -7,9 +7,9 @@ DESCRIPTION="FNF mod based on a diehard fangirl"
 
 HOMEPAGE="https://github.com/BRN101/Vs_Beepie_master"
 
-SRC_URI="https://github.com/MagelessMayhem/Beepie-Gentoo/archive/refs/tags/v0.2.7.1-beepie.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Beepie-Gentoo/releases/download/v0.2.7.1-RELEASE/Beepie-Gentoo.tar.gz"
 
-S="${WORKDIR}/Beepie-Gentoo-0.2.7.1-beepie"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -31,20 +31,10 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
-
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/FNF-Beepie"
 	insinto "/usr/share/games/FNF-Beepie"
-	doins -r "export/release/linux/bin"
+	doins -r "Beepie-Gentoo/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."

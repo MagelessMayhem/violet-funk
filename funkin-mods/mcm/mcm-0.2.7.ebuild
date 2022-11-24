@@ -9,9 +9,9 @@ DESCRIPTION="FNF mod based on Red Mist and surrounding media"
 
 HOMEPAGE="https://github.com/pahaze/Mistful-Crimson-Morning"
 
-SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/archive/refs/tags/v0.2.7-mcm.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/releases/download/v0.2.7-RELEASE/MCM.tar.gz"
 
-S="${WORKDIR}/mcm-gentoo-0.2.7-mcm"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -32,19 +32,9 @@ RDEPEND="
 "
 
 DEPEND="
-	dev-lang/luajit
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/MCM-V1"
 	insinto "/usr/share/games/MCM-V1"
@@ -53,13 +43,8 @@ src_install() {
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
 	elog
-	elog "If you received a QA notice regarding linc_luajit,"
-	elog "this is safe to ignore. The mod runs fine despite"
-	elog "the warning."
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
 	elog
-        elog "You may also want to run this command to be able"
-        elog "to run the mod:"
-        elog
-        elog "sudo chown -R <username> /usr/share/games/MCM-V1"
-
+	elog "sudo chown -R <username> /usr/share/games/MCM-V1"
 }

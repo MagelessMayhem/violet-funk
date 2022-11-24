@@ -7,9 +7,9 @@ DESCRIPTION="Forever Engine port of Hypno's Lullaby"
 HOMEPAGE="https://github.com/MAJigsaw77/Lullaby-Forever"
 
 # Contains an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/archive/refs/tags/v2.0.0-lullaby.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/releases/download/v2.0.0-RELEASE/Violet-Lullaby.tar.gz"
 
-S="${WORKDIR}/Lullaby-Forever-2.0.0-lullaby"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -32,28 +32,18 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/FNF-Lullaby"
 	insinto "/usr/share/games/FNF-Lullaby"
-	doins -r "export/release/linux/bin"
+	doins -r "Violet-Lullaby/bin"
 }
 pkg_postinst() {
 	elog "The mod can be found under /usr/share/games."
 	elog
-        elog "You may also want to run this command to be able"
-        elog "to run the mod:"
-        elog
-        elog "sudo chown -R <username> /usr/share/games/FNF-Lullaby"
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "sudo chown -R <username> /usr/share/games/FNF-Lullaby"
 
 }

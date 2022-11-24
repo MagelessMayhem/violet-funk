@@ -9,9 +9,9 @@ DESCRIPTION="FNF Psych Engine mod based on Gorefield"
 
 HOMEPAGE="https://github.com/JoseXD2/FNF-Vs-Gorefield"
 
-SRC_URI="https://github.com/MagelessMayhem/gorefield/archive/refs/tags/v0.2.7-gorefield.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/gorefield/releases/download/v0.2.7-RELEASE/Violet-Gorefield.tar.gz"
 
-S="${WORKDIR}/gorefield-0.2.7-gorefield"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -34,26 +34,17 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/FNF-Gorefield"
 	insinto "/usr/share/games/FNF-Gorefield"
-	doins -r "export/release/linux/bin"
+	doins -r "Violet-Gorefield/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."
 	elog
-        elog "You may also want to run this command to be able"
-        elog "to run the mod:"
-        elog
-        elog "sudo chown -R <username> /usr/share/games/FNF-Gorefield"
+	elog "You may also want to run this command to be able"
+	elog "to run the mod:"
+	elog
+	elog "sudo chown -R <username> /usr/share/games/FNF-Gorefield"
 }

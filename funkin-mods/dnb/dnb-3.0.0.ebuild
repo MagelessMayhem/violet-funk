@@ -5,14 +5,14 @@
 # Please refer to Kade's compilation instructions to fetch the proper libraries.
 EAPI=8
 
-DESCRIPTION="Dave Engine, a fork of Kade Engine"
+DESCRIPTION="Linux port of Dave and Bambi"
 
-HOMEPAGE="https://github.com/MoldyGH/VsDave"
+HOMEPAGE="https://github.com/MagelessMayhem/funkin-dave"
 
-# Contains an hscript fix
-SRC_URI="https://github.com/MagelessMayhem/funkin-dave/archive/refs/tags/v3.0.0-dave.tar.gz"
+# Built with an hscript fix
+SRC_URI="https://github.com/MagelessMayhem/funkin-dave/releases/download/v3.0.0-RELEASE/DNB.tar.gz"
 
-S="${WORKDIR}/funkin-dave-3.0.0-dave"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -32,28 +32,19 @@ RDEPEND="
 	pulseaudio? ( media-sound/pulseaudio )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ../../funkin-dave-3.0.0
-	haxelib run lime build linux -verbose
-}
 src_install() {
-	keepdir "/usr/share/games/Funkin-Dave"
-	insinto "/usr/share/games/Funkin-Dave"
-	doins -r "export/release/linux/bin"
+	keepdir "/usr/share/games/DNB-3"
+	insinto "/usr/share/games/DNB-3"
+	doins -r "DNB-Violet/bin"
 }
 pkg_postinst() {
 	elog "You can find this build in /usr/share/games."
 	elog
 	elog "You may also need to run this command to execute the mod:"
 	elog
-	elog "sudo chown -R <username> /usr/share/games/Funkin-Dave"
+	elog "sudo chown -R <username> /usr/share/games/DNB-3"
 	elog
-	elog "Huge shoutout to MoldyGH for giving his engine"
-	elog "official Linux support. It made this ebuild more"
+	elog "Huge shoutout to MoldyGH for giving his mod"
+	elog "official Linux support. It made this port more"
 	elog "convenient to create and maintain."
 }

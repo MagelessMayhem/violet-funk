@@ -1,4 +1,7 @@
 # violet-funk
+
+**Note:** This overlay's ebuilds are currently in the process of being migrated to binaries. The change will be gradual but noticeable.
+
 Gentoo ebuild overlay based around FNF and FNF mods.
 
 Using this overlay is fairly easy. First install `app-eselect/eselect-repository` and issue the following commands to add the overlay to your system:
@@ -15,4 +18,3 @@ After Haxe has been merged, run `/var/db/repos/violet-funk/vf-haxelib.sh` and `/
 
 After you've done all this, you're set! You can merge any FNF ebuild to your heart's content.
 
-**Note:** This overlay's ebuilds are currently in the process of being migrated to binaries. The change will be gradual but noticeable.

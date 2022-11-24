@@ -38,7 +38,7 @@ DEPEND="
 src_install() {
 	keepdir "/usr/share/games/MCM-V1"
 	insinto "/usr/share/games/MCM-V1"
-	doins -r "export/release/linux/bin"
+	doins -r "MCM/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."

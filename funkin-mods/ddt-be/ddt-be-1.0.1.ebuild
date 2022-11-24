@@ -9,9 +9,9 @@ DESCRIPTION="Play with me, it's all I have."
 
 HOMEPAGE="https://github.com/Dxgamer7405/Doki-Doki-Takeover-BAD-ENDING"
 
-SRC_URI="https://github.com/MagelessMayhem/ddt-be/archive/refs/tags/v1.0.1-ddt-be.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/ddt-be/releases/download/v1.0.1-RELEASE/ddt-be.tar.gz"
 
-S="${WORKDIR}/ddt-be-1.0.1-ddt-be"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -34,20 +34,11 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/DDT-Bad-Ending"
 	insinto "/usr/share/games/DDT-Bad-Ending"
-	doins -r "export/release/linux/bin"
+	doins -r "ddt-be/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."

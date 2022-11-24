@@ -7,9 +7,9 @@ EAPI=8
 
 DESCRIPTION="Kade Engine mod based on Flippy, a character from Happy Tree Friends"
 HOMEPAGE="https://github.com/Yirius125/FNF-VsFliqpy-1.5-Full-Week-Engine"
-SRC_URI="https://github.com/MagelessMayhem/fliqpy-kade/archive/refs/tags/v0.2.7.1-fliqpy.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/fliqpy-kade/releases/download/v0.2.7.1-RELEASE/fliqpy-kade.tar.gz"
 
-S="${WORKDIR}/fliqpy-kade-0.2.7.1-fliqpy"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -32,20 +32,11 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/fliqpy-kade"
 	insinto "/usr/share/games/fliqpy-kade"
-	doins -r "export/release/linux/bin"
+	doins -r "Violet-Fliqpy/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod in /usr/share/games."

@@ -5,7 +5,7 @@
 # https://github.com/ninjamuffin99/Funkin
 EAPI=8
 
-DESCRIPTION="A rhythm game made with HaxeFlixel"
+DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
 HOMEPAGE="https://ninja-muffin24.itch.io/funkin"
 # This tarball contains an hscript fix that allows FNF to compile properly
 SRC_URI="

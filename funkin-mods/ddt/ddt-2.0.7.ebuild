@@ -11,9 +11,9 @@ DESCRIPTION="The takeover you've been waiting for"
 HOMEPAGE="https://github.com/Jorge-SunSpirit/Doki-Doki-Takeover"
 
 # Contains hscript fix + proper Lua modchart setting for Gentoo. Also disables GameJolt integration since it's ultimately unneeded.
-SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/archive/refs/tags/v2.0.7-ddt.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/releases/download/v2.0.7-RELEASE/DDT.tar.gz"
 
-S="${WORKDIR}/Doki-Doki-Takeover-2.0.7-ddt"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 
@@ -35,20 +35,11 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-BDEPEND="
-	=dev-lang/haxe-9999
-	sys-devel/gcc
-"
 
-src_compile() {
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	cd ${S}
-	haxelib run lime build linux -verbose
-}
 src_install() {
 	keepdir "/usr/share/games/DDT"
 	insinto "/usr/share/games/DDT"
-	doins -r "export/release/linux/bin"
+	doins -r "DDT-Violet/bin"
 }
 pkg_postinst() {
 	elog "The mod can be found under /usr/share/games."

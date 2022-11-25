@@ -4,4 +4,7 @@
 	<maintainer type="person">
 		<email>MagelessMayhem@protonmail.com</email>
 	</maintainer>
+	<use>
+		<flag name="utau">Override the standard songs with covers synthesized using UTAU/OpenUTAU software.</flag>
+	</use>
 </pkgmetadata>

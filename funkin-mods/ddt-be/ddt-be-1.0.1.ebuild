@@ -1,15 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# This mod requires Kade Engine dependencies.
-# Please refer to Kade's compilation instructions to fetch the proper libraries.
 EAPI=8
 
 DESCRIPTION="Play with me, it's all I have."
 
 HOMEPAGE="https://github.com/Dxgamer7405/Doki-Doki-Takeover-BAD-ENDING"
 
-SRC_URI="https://github.com/MagelessMayhem/ddt-be/releases/download/v1.0.1-RELEASE/ddt-be.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/ddt-be/releases/download/v1.0.1-RELFIX/ddt-be.tar.gz"
 
 S="${WORKDIR}"
 
@@ -26,6 +24,7 @@ IUSE="
 "
 
 RDEPEND="
+	media-libs/libvlccore7
 	X? ( x11-base/xorg-server )
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio )

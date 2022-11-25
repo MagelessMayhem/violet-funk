@@ -10,7 +10,7 @@ DESCRIPTION="Linux port of Dave and Bambi"
 HOMEPAGE="https://github.com/MagelessMayhem/funkin-dave"
 
 # Built with an hscript fix
-SRC_URI="https://github.com/MagelessMayhem/funkin-dave/releases/download/v3.0.0-RELEASE/DNB.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/funkin-dave/releases/download/v3.0.0-RELFIX/DNB.tar.gz"
 
 S="${WORKDIR}"
 
@@ -27,6 +27,7 @@ IUSE="
 "
 
 RDEPEND="
+	media-libs/libvlccore7
 	X? ( x11-base/xorg-server )
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio )
@@ -43,6 +44,7 @@ pkg_postinst() {
 	elog "You may also need to run this command to execute the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/DNB-3"
+	elog "chmod 755 /usr/share/games/DNB-3/bin/VsDave"
 	elog
 	elog "Huge shoutout to MoldyGH for giving his mod"
 	elog "official Linux support. It made this port more"

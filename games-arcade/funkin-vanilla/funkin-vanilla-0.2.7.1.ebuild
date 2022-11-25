@@ -47,10 +47,11 @@ src_install() {
 }
 pkg_postinst() {
 	elog "FNF has been installed to /usr/share/games/Funkin."
-	elog 
-	elog "You may need to run this command to run it:"
+	elog
+	elog "You may need to run these commands to run it:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/Funkin"
+	elog "chmod 755 /usr/share/games/Funkin/bin/Funkin"
 	elog
 	elog "If you want UTAU covers, enable the utau USE flag and"
 	elog "remerge this package."

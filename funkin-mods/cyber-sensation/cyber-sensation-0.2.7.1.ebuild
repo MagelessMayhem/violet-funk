@@ -9,7 +9,7 @@ DESCRIPTION="Explore the cyber world...where someone awaits."
 HOMEPAGE="https://github.com/TaeYai/Cyber-Sensation"
 
 # Built with an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/releases/download/v0.2.7.1-RELEASE/Cyber-Sensation.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Cyber-Sensation/releases/download/v0.2.7.1-RELFIX/Cyber-Sensation.tar.gz"
 
 S="${WORKDIR}"
 
@@ -42,8 +42,9 @@ src_install() {
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
 	elog
-	elog "You may also want to run this command to be able"
+	elog "You may also want to run these commands to be able"
 	elog "to run the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/Cyber-Sensation"
+	elog "chmod 755 \"/usr/share/games/Cyber-Sensation/bin/Kade Engine\""
 }

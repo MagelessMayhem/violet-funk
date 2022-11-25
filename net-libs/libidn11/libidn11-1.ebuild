@@ -9,7 +9,7 @@ HOMEPAGE="https://github.com/MagelessMayhem/Funkin/releases/tag/v0.2.7.1-DEPS"
 
 SRC_URI="https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-DEPS/libidn11.tar.gz"
 
-S="${WORKDIR}/libidn11"
+S="${WORKDIR}"
 
 LICENSE="LGPL-2.1"
 

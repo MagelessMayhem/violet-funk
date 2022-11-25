@@ -1,15 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Refer to the compilation instructions of FNF to fetch the proper libraries.
-# https://github.com/ninjamuffin99/Funkin
 EAPI=8
 
 DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
 HOMEPAGE="https://ninja-muffin24.itch.io/funkin"
-# This tarball contains an hscript fix that allows FNF to compile properly
+# Include the binary that actually runs properly
 SRC_URI="
-	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-RELEASE/Funkin.tar.gz
+	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-RELFIX/Funkin.tar.gz
 	utau? ( https://github.com/MagelessMayhem/vanilla-funkaloid/releases/download/v1.0.0/utau-covers.tar.gz )
 	"
 

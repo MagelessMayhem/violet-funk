@@ -11,7 +11,7 @@ DESCRIPTION="The takeover you've been waiting for"
 HOMEPAGE="https://github.com/Jorge-SunSpirit/Doki-Doki-Takeover"
 
 # Contains hscript fix + proper Lua modchart setting for Gentoo. Also disables GameJolt integration since it's ultimately unneeded.
-SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/releases/download/v2.0.7-RELEASE/DDT.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Doki-Doki-Takeover/releases/download/v2.0.7-RELFIX/DDT.tar.gz"
 
 S="${WORKDIR}"
 
@@ -48,5 +48,6 @@ pkg_postinst() {
 	elog "to run the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/DDT"
+	elog "chmod 755 /usr/share/games/DDT/bin/DokiTakeover"
 }
 

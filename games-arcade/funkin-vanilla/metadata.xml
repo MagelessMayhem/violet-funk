@@ -5,6 +5,9 @@
 		<email>MagelessMayhem@protonmail.com</email>
 	</maintainer>
 	<use>
+		<flag name="X">Pull in X and its dependencies to be able to run the game.</flag>
+		<flag name="alsa">Enable basic audio support. Useful for most sessions.</flag>
+		<flag name="pulseaudio">Enable PulseAudio support; useful for desktop sessions. This will override the alsa USE flag.</flag>
 		<flag name="utau">Override the standard songs with covers synthesized using UTAU/OpenUTAU software.</flag>
 	</use>
 </pkgmetadata>

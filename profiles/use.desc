@@ -1,0 +1,3 @@
+X - Pull in X and its dependencies to be able to run the game
+alsa - Enable basic audio support
+utau - Override the standard songs with covers synthesized using UTAU/OpenUTAU software

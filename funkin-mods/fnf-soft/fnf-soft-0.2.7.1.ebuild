@@ -7,7 +7,7 @@ DESCRIPTION="FNF mod which encompasses an LGBT character"
 
 HOMEPAGE="https://github.com/mattsodes1031/Softmod-Public"
 
-SRC_URI="https://github.com/MagelessMayhem/FNF-Soft-Gentoo/releases/download/v0.2.7.1-RELEASE/FNF-Soft-Gentoo.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/FNF-Soft-Gentoo/releases/download/v0.2.7.1-RELFIX/FNF-Soft-Gentoo.tar.gz"
 
 S="${WORKDIR}"
 
@@ -44,4 +44,5 @@ pkg_postinst() {
     elog "be able to run the mod:"
     elog
     elog "sudo chown -R <username> /usr/share/games/FNF-Soft"
+	elog "chmod 755 \"/usr/share/games/FNF-Soft/bin/Soft Mod\""
 }

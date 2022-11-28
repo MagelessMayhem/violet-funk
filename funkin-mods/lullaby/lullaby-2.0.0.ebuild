@@ -20,7 +20,6 @@ IUSE="
 	+X
 	+alsa
 	pulseaudio
-	easy-mode
 "
 
 RDEPEND="

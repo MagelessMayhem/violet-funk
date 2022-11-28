@@ -6,8 +6,7 @@ EAPI=8
 DESCRIPTION="Forever Engine port of Hypno's Lullaby"
 HOMEPAGE="https://github.com/MAJigsaw77/Lullaby-Forever"
 
-# Contains an hscript fix.
-SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/releases/download/v2.0.0-RELEASE/Violet-Lullaby.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Lullaby-Forever/releases/download/v2.0.0-RELFIX/Violet-Lullaby-LD.tar.gz"
 
 S="${WORKDIR}"
 
@@ -21,6 +20,7 @@ IUSE="
 	+X
 	+alsa
 	pulseaudio
+	easy-mode
 "
 
 RDEPEND="
@@ -34,9 +34,9 @@ DEPEND="
 "
 
 src_install() {
-	keepdir "/usr/share/games/FNF-Lullaby"
-	insinto "/usr/share/games/FNF-Lullaby"
-	doins -r "Violet-Lullaby/bin"
+	keepdir "/usr/share/games/FNF-Lullaby-LD"
+	insinto "/usr/share/games/FNF-Lullaby-LD"
+	doins -r "Violet-Lullaby-LD/bin"
 }
 pkg_postinst() {
 	elog "The mod can be found under /usr/share/games."
@@ -44,6 +44,9 @@ pkg_postinst() {
 	elog "You may also want to run this command to be able"
 	elog "to run the mod:"
 	elog
-	elog "sudo chown -R <username> /usr/share/games/FNF-Lullaby"
-
+	elog "sudo chown -R <username> /usr/share/games/FNF-Lullaby-LD"
+	elog
+	elog "This build of Hypno's Lullaby has been modified to be"
+	elog "compatible with the lowest difficulty. It is still playable"
+	elog "on the other difficulties."
 }

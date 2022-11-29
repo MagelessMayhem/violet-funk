@@ -10,7 +10,7 @@ DESCRIPTION="FNF mod based on Madness Combat's Tricky"
 HOMEPAGE="https://github.com/KadeDev/trickster"
 
 # Fork which contains an hscript fix
-SRC_URI="https://github.com/MagelessMayhem/tricky-kade/releases/download/v2.0.0-RELEASE/Violet-Tricky.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/tricky-kade/releases/download/v2.0.0-RELFIX/Violet-Tricky.tar.gz"
 
 S="${WORKDIR}"
 
@@ -48,4 +48,5 @@ pkg_postinst() {
 	elog "to run the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/tricky-kade"
+	elog "chmod 755 \"/usr/share/games/tricky-kade/bin/Vs Tricky\""
 }

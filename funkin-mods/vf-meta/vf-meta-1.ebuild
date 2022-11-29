@@ -14,9 +14,6 @@ DEPEND="
 	funkin-mods/ddt
 	funkin-mods/fliqpy-kade
 	funkin-mods/fnf-soft
-	funkin-mods/gorefield
-	funkin-mods/indie-cross
-	funkin-mods/jerry
 	funkin-mods/lullaby
 	funkin-mods/mcm
 	funkin-mods/sunday

@@ -9,7 +9,7 @@ DESCRIPTION="FNF mod based on Red Mist and surrounding media"
 
 HOMEPAGE="https://github.com/pahaze/Mistful-Crimson-Morning"
 
-SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/releases/download/v0.2.7-RELEASE/MCM.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/mcm-gentoo/releases/download/v0.2.7-RELFIX/Violet-Mist.tar.gz"
 
 S="${WORKDIR}"
 
@@ -38,13 +38,14 @@ DEPEND="
 src_install() {
 	keepdir "/usr/share/games/MCM-V1"
 	insinto "/usr/share/games/MCM-V1"
-	doins -r "MCM/bin"
+	doins -r "Violet-Mist/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."
 	elog
-	elog "You may also want to run this command to be able"
+	elog "You may also want to run these commands to be able"
 	elog "to run the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/MCM-V1"
+	elog "chmod 755 /usr/share/games/MCM-V1/bin/Mist"
 }

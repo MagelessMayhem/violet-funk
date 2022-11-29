@@ -7,7 +7,7 @@ DESCRIPTION="Play with me, it's all I have."
 
 HOMEPAGE="https://github.com/Dxgamer7405/Doki-Doki-Takeover-BAD-ENDING"
 
-SRC_URI="https://github.com/MagelessMayhem/ddt-be/releases/download/v1.0.1-RELFIX/ddt-be.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/ddt-be/releases/download/v1.0.1-RELFIX/Violet-DDT-BE.tar.gz"
 
 S="${WORKDIR}"
 
@@ -37,7 +37,7 @@ DEPEND="
 src_install() {
 	keepdir "/usr/share/games/DDT-Bad-Ending"
 	insinto "/usr/share/games/DDT-Bad-Ending"
-	doins -r "ddt-be/bin"
+	doins -r "Violet-DDT-BE/bin"
 }
 pkg_postinst() {
 	elog "You can find the mod under /usr/share/games."

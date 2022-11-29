@@ -9,7 +9,7 @@ DESCRIPTION="FNF mod based around a scarecrow and his cablestand"
 
 HOMEPAGE="https://github.com/KadeDev/Vs-Zardy"
 
-SRC_URI="https://github.com/MagelessMayhem/zardy-kade/releases/download/v0.2.7.1-RELEASE/zardy-kade.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/zardy-kade/releases/download/v0.2.7.1-RELFIX/Violet-Zardy.tar.gz"
 
 S="${WORKDIR}"
 
@@ -47,4 +47,5 @@ pkg_postinst() {
 	elog "to run the mod:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/zardy-kade"
+	elog "chmod 755 \"/usr/share/games/zardy-kade/bin/Kade Engine\""
 }

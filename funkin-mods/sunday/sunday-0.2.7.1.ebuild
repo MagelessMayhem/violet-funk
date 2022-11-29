@@ -7,7 +7,7 @@ DESCRIPTION="FNF mod by bbpanzu based on a wannabe rockstar"
 
 HOMEPAGE="https://github.com/bbpanzu/FNF-Sunday"
 
-SRC_URI="https://github.com/MagelessMayhem/Violet-Sunday/releases/download/v0.2.7.1-RELEASE/Violet-Sunday.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/Violet-Sunday/releases/download/v0.2.7.1-RELFIX/Violet-Sunday.tar.gz"
 
 S="${WORKDIR}"
 
@@ -45,4 +45,5 @@ pkg_postinst() {
     elog "be able to run the mod:"
     elog
     elog "sudo chown -R <username> /usr/share/games/FNF-Sunday"
+	elog "chmod 755 \"/usr/share/games/FNF-Sunday/bin/Vs Sunday\""
 }

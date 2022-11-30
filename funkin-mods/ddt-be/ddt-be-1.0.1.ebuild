@@ -24,7 +24,6 @@ IUSE="
 "
 
 RDEPEND="
-	media-libs/libvlccore7
 	X? ( x11-base/xorg-server )
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio )

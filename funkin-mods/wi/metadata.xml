@@ -8,5 +8,6 @@
 		<flag name="X">Pull in X and its dependencies to be able to run the game.</flag>
 		<flag name="alsa">Enable basic audio support. Useful for most sessions.</flag>
 		<flag name="pulseaudio">Enable PulseAudio support; useful for desktop sessions. This will override the alsa USE flag.</flag>
+		<flag name="private-build">Install a binary with the PRIVATE_BUILD Lime definition. See the mod's homepage for details.</flag>
 	</use>
 </pkgmetadata>

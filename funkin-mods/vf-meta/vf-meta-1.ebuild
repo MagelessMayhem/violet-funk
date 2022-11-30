@@ -17,6 +17,7 @@ DEPEND="
 	funkin-mods/lullaby
 	funkin-mods/mcm
 	funkin-mods/sunday
+	funkin-mods/the-puppet-master
 	funkin-mods/tricky-kade
 	funkin-mods/wi
 	funkin-mods/zardy-kade

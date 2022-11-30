@@ -20,5 +20,5 @@ KEYWORDS="~amd64"
 src_install() {
 	dodir "/usr/lib64/"
 	insinto "/usr/lib64/"
-	doins "libvlccore7/*"
+	doins "${WORKDIR}/libvlccore7/*"
 }

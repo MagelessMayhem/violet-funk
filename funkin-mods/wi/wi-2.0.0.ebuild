@@ -37,7 +37,7 @@ DEPEND="
 src_install() {
 	keepdir "/usr/share/games/Wednesdays-Infidelity"
 	insinto "/usr/share/games/Wednesdays-Infidelity"
-	if [[ $(use private-build) ]]; then
+	if [[ -d "WI-Gentoo-BD/" ]]; then
 		doins -r "WI-Gentoo-BD/bin"
 	else
 		doins -r "WI-Gentoo/bin"

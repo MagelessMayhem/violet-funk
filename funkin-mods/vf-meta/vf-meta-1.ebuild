@@ -14,6 +14,7 @@ DEPEND="
 	funkin-mods/ddt
 	funkin-mods/fliqpy-kade
 	funkin-mods/fnf-soft
+	funkin-mods/jenny
 	funkin-mods/lullaby
 	funkin-mods/mcm
 	funkin-mods/sunday

@@ -55,13 +55,13 @@ pkg_postinst() {
     elog "the following command:"
     elog
     elog "sudo chown -R <username> /usr/share/games/Wednesdays-Infidelity"
-	elog "chmod 755 \"/usr/share/games/Wednesdays-Infidelity/bin/Wednesday's Infidelity\""
-	elog
-	elog "Note that the game currently doesn't run with shaders, meaning"
-	elog "you will need to disable them to play it."
-	elog
-	elog "If you enabled the private-build USE flag, you will be able to"
-	elog "unlock multiple features, including a universal pause and botplay"
-	elog "toggle. For more information, please view the README.md file at"
-	elog "https://github.com/lunarcleint/Wednesdays-Infidelity."
+    elog "chmod 755 \"/usr/share/games/Wednesdays-Infidelity/bin/Wednesday's Infidelity\""
+    elog
+    elog "Note that the game currently doesn't run with shaders, meaning"
+    elog "you will need to disable them to play it."
+    elog
+    elog "If you enabled the private-build USE flag, you will be able to"
+    elog "unlock multiple features, including a universal pause and botplay"
+    elog "toggle. For more information, please view the README.md file at"
+    elog "https://github.com/lunarcleint/Wednesdays-Infidelity."
 }

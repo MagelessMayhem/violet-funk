@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>MagelessMayhem@protonmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="X">Pull in X and its dependencies to be able to run the game.</flag>
+		<flag name="alsa">Enable basic audio support. Useful for most sessions.</flag>
+		<flag name="pulseaudio">Enable PulseAudio support; useful for desktop sessions. This will override the alsa USE flag.</flag>
+	</use>
+</pkgmetadata>

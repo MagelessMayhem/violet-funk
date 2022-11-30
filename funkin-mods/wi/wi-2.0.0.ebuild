@@ -7,7 +7,8 @@ DESCRIPTION="Linux port of Wednesday's Infidelity"
 
 HOMEPAGE="https://github.com/MagelessMayhem/WI-Gentoo"
 
-SRC_URI="https://github.com/MagelessMayhem/WI-Gentoo/releases/download/v2.0.0-RELEASE/WI-Gentoo.tar.gz"
+SRC_URI="private-build? ( https://github.com/MagelessMayhem/WI-Gentoo/releases/download/v2.0.0-RELFIX/WI-Gentoo-BD.tar.gz )
+	!private-build? ( https://github.com/MagelessMayhem/WI-Gentoo/releases/download/v2.0.0-RELFIX/WI-Gentoo.tar.gz )"
 
 S="${WORKDIR}"
 
@@ -21,6 +22,7 @@ IUSE="
 	+X
 	+alsa
 	pulseaudio
+	private-build
 "
 
 RDEPEND="
@@ -33,9 +35,13 @@ DEPEND="
 	${RDEPEND}
 "
 src_install() {
-    keepdir "/usr/share/games/Wednesdays-Infidelity"
-    insinto "/usr/share/games/Wednesdays-Infidelity"
-    doins -r "WI-Gentoo/bin"
+	keepdir "/usr/share/games/Wednesdays-Infidelity"
+	insinto "/usr/share/games/Wednesdays-Infidelity"
+	if [[ $(use private-build) ]]; then
+		doins -r "WI-Gentoo-BD/bin"
+	else
+		doins -r "WI-Gentoo/bin"
+	fi
 }
 pkg_postinst() {
     elog "You can find the mod in /usr/share/games."
@@ -49,4 +55,13 @@ pkg_postinst() {
     elog "the following command:"
     elog
     elog "sudo chown -R <username> /usr/share/games/Wednesdays-Infidelity"
+	elog "chmod 755 \"/usr/share/games/Wednesdays-Infidelity/bin/Wednesday's Infidelity\""
+	elog
+	elog "Note that the game currently doesn't run with shaders, meaning"
+	elog "you will need to disable them to play it."
+	elog
+	elog "If you enabled the private-build USE flag, you will be able to"
+	elog "unlock multiple features, including a universal pause and botplay"
+	elog "toggle. For more information, please view the README.md file at"
+	elog "https://github.com/lunarcleint/Wednesdays-Infidelity."
 }

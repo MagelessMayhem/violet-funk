@@ -62,7 +62,7 @@ IUSE="
 BDEPEND="
 	app-arch/unzip
 	dev-lang/haxe
-	sys-devel/gcc
+	kade-libs? ( sys-devel/gcc )
 "
 DEPEND="${BDEPEND}"
 

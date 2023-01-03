@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
-HOMEPAGE="https://github.com/ninjamuffin99/Funkin"
+HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 # Include the binary that actually runs properly
 SRC_URI="
 	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-RELFIX/Funkin.tar.gz

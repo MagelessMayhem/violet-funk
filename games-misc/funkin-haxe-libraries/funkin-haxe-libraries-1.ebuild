@@ -6,6 +6,7 @@ EAPI=8
 DESCRIPTION="An ebuild which installs Haxe dependencies for building FNF and FNF mods"
 
 SRC_URI="
+	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-vf-vanilla/haxe-bin.zip
 	base-libs? (
 		https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-4,11,0.zip
 		https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/newgrounds-1,1,5.zip
@@ -45,11 +46,9 @@ SRC_URI="
 "
 LICENSE="MIT specialty-libs? ( LGPL-2.1 )"
 
-# S doesn't matter, does it?
-
-S=${WORKDIR}/..
-
 SLOT=0
+
+S=${WORKDIR}/haxe-bin
 
 KEYWORDS="~amd64"
 
@@ -62,23 +61,32 @@ IUSE="
 BDEPEND="
 	app-arch/unzip
 	dev-lang/haxe
-	kade-libs? ( sys-devel/gcc )
+	sys-devel/gcc
 "
 DEPEND="${BDEPEND}"
+src_unpack() {
+	unpack haxe-bin.zip
+}
 
 src_compile() {
 
-	if [ $(usex base-libs) == "no" ]; then
+	HAXE_STD_PATH='${S}/std'
+	HAXELIB_PATH='${S}'
+	HAXE_PATH='${S}'
 
-		die "The base-libs USE flag must be enabled! Aborting installation." 
+	if [ $(use !base-libs) ]; then
+
+		die "The base-libs USE flag must be enabled! Aborting installation."
 
 	fi
+
+	alias haxelib='${S}/haxelib'
+	alias haxe='${S}/haxe'
 
 	LIBDIR="/var/cache/distfiles"
 	addread ${LIBDIR}
 
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
-	addpredict /var/tmp/portage/.local/share/haxe/lib
+	haxelib setup '/var/tmp/portage/games-misc/funkin-haxe-libraries-1/work/haxe-bin/lib'
 
 	if [ $(usex base-libs) == "yes" ]; then
 
@@ -126,4 +134,9 @@ src_compile() {
 		haxelib install ${LIBDIR}/flxanimate-1,2,0.zip
 
 	fi
+}
+src_install() {
+	keepdir "/usr/share/haxe/"
+	insinto "/usr/share/haxe/"
+	doins -r "${WORKDIR}/haxe-bin/lib"
 }

@@ -86,9 +86,9 @@ src_install() {
 	doexe "${S}/export/release/linux/bin/Funkin"
 	echo 'exec /usr/share/games/export/release/linux/bin/Funkin' > "${WORKDIR}/funkin"
 	dobin "${WORKDIR}/funkin"
-	doicon -s 32 "${WORKDIR}/art/icon32.png"
-	doicon -s 16 "${WORKDIR}/art/icon16.png"
-	doicon -s 64 "${WORKDIR}/art/icon64.png"
+	doicon -s 32 "${S}/art/icon32.png"
+	doicon -s 16 "${S}/art/icon16.png"
+	doicon -s 64 "${S}/art/icon64.png"
 	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/pixmaps/icon32.png' 'Game'
 	domenu "${WORKDIR}/*.desktop"
 }

@@ -84,12 +84,12 @@ src_install() {
 	doins -r "${S}/export/release/linux/bin"
 	exeinto "/usr/share/games/Funkin/bin"
 	doexe "${S}/export/release/linux/bin/Funkin"
-	echo 'exec ./Funkin' > "${WORKDIR}/funkin"
-	doexe "${WORKDIR}/funkin"
+	echo '(cd /usr/share/games/Funkin/bin; ./Funkin)' > "${WORKDIR}/funkin"
+	dobin "${WORKDIR}/funkin"
 	newicon -s 32 "${S}/art/icon32.png" "Funkin32.png"
 	newicon -s 16 "${S}/art/icon16.png" "Funkin16.png"
 	newicon -s 64 "${S}/art/icon64.png" "Funkin64.png"
-	make_desktop_entry '/usr/share/games/Funkin/bin/funkin' "Friday Night Funkin'" '/usr/share/icons/hicolor/32x32/apps/Funkin32.png' 'Game'
+	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/icons/hicolor/32x32/apps/Funkin32.png' 'Game'
 }
 pkg_postinst() {
 	xdg_icon_cache_update

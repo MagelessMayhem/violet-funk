@@ -76,7 +76,7 @@ src_compile() {
 
 	haxelib setup /var/tmp/portage/.local/share/haxe/lib
 
-	haxelib run lime build linux -v
+	haxelib run lime build linux -debug -v
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"

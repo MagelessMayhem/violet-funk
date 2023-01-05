@@ -93,12 +93,12 @@ src_install() {
 }
 pkg_postinst() {
 	xdg_icon_cache_update
-	elog "FNF has been installed to /usr/share/games/Funkin."
+	elog "The following are known (potential) issues with the software:"
 	elog
-	elog "You may need to take ownership of the game folder to run it properly:"
+	elog "- One less song shows up in story mode per week."
+	elog "- The options menu lacks critical functionality shown in modding engines (such as the ability to set controls)."
 	elog
-	elog "sudo chown -R <username> /usr/share/games/Funkin"
+	elog "These issues should be submitted to https://github.com/FunkinCrew/Funkin to be fixed."
 	elog
-	elog "If you want UTAU covers, enable the utau USE flag and"
-	elog "remerge this package."
+	elog "Any issues with the ebuild and not the software installed by the ebuild may appropriately be submitted to the Gentoo Bugzilla."
 }

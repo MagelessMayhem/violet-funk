@@ -95,10 +95,9 @@ pkg_postinst() {
 	xdg_icon_cache_update
 	elog "FNF has been installed to /usr/share/games/Funkin."
 	elog
-	elog "You may need to run these commands to run it:"
+	elog "You may need to take ownership of the game folder to run it properly:"
 	elog
 	elog "sudo chown -R <username> /usr/share/games/Funkin"
-	elog "chmod 755 /usr/share/games/Funkin/bin/Funkin"
 	elog
 	elog "If you want UTAU covers, enable the utau USE flag and"
 	elog "remerge this package."

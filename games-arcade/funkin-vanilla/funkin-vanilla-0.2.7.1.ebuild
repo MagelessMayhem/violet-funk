@@ -90,7 +90,6 @@ src_install() {
 	doicon -s 16 "${S}/art/icon16.png"
 	doicon -s 64 "${S}/art/icon64.png"
 	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/pixmaps/icon32.png' 'Game'
-	domenu "${WORKDIR}/*.desktop"
 }
 pkg_postinst() {
 	elog "FNF has been installed to /usr/share/games/Funkin."

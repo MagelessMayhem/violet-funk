@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit desktop
+
 DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 
@@ -82,6 +84,13 @@ src_install() {
 	doins -r "${S}/export/release/linux/bin"
 	exeinto "/usr/share/games/Funkin/export/release/linux/bin"
 	doexe "${S}/export/release/linux/bin/Funkin"
+	echo 'exec /usr/share/games/export/release/linux/bin/Funkin' > ${WORKDIR}/funkin
+	dobin '${WORKDIR}/funkin'
+	doicon -s 32 '${WORKDIR}/art/icon32.png'
+	doicon -s 16 '${WORKDIR}/art/icon16.png'
+	doicon -s 64 '${WORKDIR}/art/icon64.png'
+	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/pixmaps/icon32.png' 'Game'
+	domenu '${WORKDIR}/*.desktop'
 }
 pkg_postinst() {
 	elog "FNF has been installed to /usr/share/games/Funkin."

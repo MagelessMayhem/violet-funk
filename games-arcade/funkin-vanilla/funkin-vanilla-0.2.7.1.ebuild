@@ -81,9 +81,9 @@ src_compile() {
 src_install() {
 	keepdir "/usr/share/games/Funkin"
 	insinto "/usr/share/games/Funkin"
-	doins -r "${S}/export/release/linux/bin"
+	doins -r "${S}/export/debug/linux/bin"
 	exeinto "/usr/share/games/Funkin/bin"
-	doexe "${S}/export/release/linux/bin/Funkin"
+	doexe "${S}/export/debug/linux/bin/Funkin"
 	echo '(cd /usr/share/games/Funkin/bin; ./Funkin)' > "${WORKDIR}/funkin"
 	dobin "${WORKDIR}/funkin"
 	newicon -s 32 "${S}/art/icon32.png" "Funkin32.png"

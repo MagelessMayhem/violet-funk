@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop xdg-utils
 
 DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
@@ -92,6 +92,7 @@ src_install() {
 	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/pixmaps/icon32.png' 'Game'
 }
 pkg_postinst() {
+	xdg_icon_cache_update
 	elog "FNF has been installed to /usr/share/games/Funkin."
 	elog
 	elog "You may need to run these commands to run it:"

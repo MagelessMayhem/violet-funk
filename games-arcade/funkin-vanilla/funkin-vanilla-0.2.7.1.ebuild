@@ -126,7 +126,7 @@ src_compile() {
 
 	# Building the debug target to make it easier to pinpoint issues with the game itself	
 
-	${WORKDIR}/haxe-bin/haxelib run lime build linux -debug -v
+	HAXELIB_PATH=/var/tmp/portage/games-arcade/funkin-vanilla-0.2.7.1/work/haxe/lib ${WORKDIR}/haxe-bin/haxelib run lime build linux -debug -v
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"

@@ -36,7 +36,6 @@ src_install() {
 	keepdir "/usr/share/haxe"
 	insinto "/usr/share/haxe"
 	doins -r ${S}/std/
-	doins -r ${S}/lib/
 	dobin ${S}/haxe
 	dobin ${S}/haxelib
 }

@@ -2,7 +2,7 @@
 
 Gentoo ebuild overlay based around FNF and FNF mods.
 
-All of the ebuilds in this overlay install pre-built binaries. You do not need to worry about compiling them (because trying to build with Haxe using Portage is a headache and a half).
+The mods in this overlay are *currently* binaries; the base game, however, is a source ebuild. The mods are currently being migrated to source ebuilds, so do expect some rockiness during the process.
 
 This repository is now available in Gentoo's repositories.xml! To enable it, you can run either of these commands:
 

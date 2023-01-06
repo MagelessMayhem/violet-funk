@@ -4,7 +4,7 @@ Gentoo ebuild overlay based around FNF and FNF mods.
 
 The mods in this overlay are *currently* binaries; the base game, however, is a source ebuild. The mods are currently being migrated to source ebuilds, so do expect some rockiness during the process.
 
-This repository is now available in Gentoo's repositories.xml! To enable it, you can run either of these commands:
+This repository can be enabled using either of:
 
 `sudo eselect repository enable violet-funk` (if you are using `app-eselect/eselect-repository`)
 

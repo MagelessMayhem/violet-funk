@@ -68,7 +68,6 @@ BDEPEND="
 		sys-devel/binutils
 "
 src_unpack() {
-	unpack haxe-bin.zip
 	unpack Funkin-VF.tar.gz
 	if [ $(usex utau) == "yes" ]; then
 		unpack utau-covers.tar.gz

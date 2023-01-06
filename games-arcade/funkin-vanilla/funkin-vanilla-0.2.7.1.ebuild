@@ -35,7 +35,7 @@ SRC_URI="
 
 S="${WORKDIR}/Funkin"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 MIT"
 
 SLOT="0"
 

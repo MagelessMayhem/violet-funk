@@ -39,5 +39,7 @@ src_install() {
 	doins -r ${S}/lib/
 	dobin ${S}/haxe
 	dobin ${S}/haxelib
-	dodoc -r ${S}/doc/
+	keepdir "/usr/share/haxe/doc/violet-haxe"
+	insinto "/usr/share/haxe/doc/violet-haxe"
+	doins -r ${S}/doc/
 }

@@ -86,7 +86,7 @@ src_compile() {
 	fi
 
 	HAXE_STD_PATH=${WORKDIR}/haxe-bin/std
-	HAXELIB_PATH=${WORKDIR}/haxe-bin
+	HAXELIB_PATH=/var/tmp/portage/games-arcade/funkin-vanilla-0.2.7.1/work/haxe/lib
 	HAXE_PATH=${WORKDIR}/haxe-bin
 
 	# Note: Source tarball already has APIStuff.hx included

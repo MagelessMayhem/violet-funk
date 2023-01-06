@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop xdg-utils
 
-DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
+DESCRIPTION="An open-source rhythm game written using HaxeFlixel"
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 
 # The first two archives contain pre-built Haxe binaries and a fork of FNF's source code.

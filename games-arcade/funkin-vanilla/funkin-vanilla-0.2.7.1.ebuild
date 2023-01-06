@@ -97,38 +97,36 @@ src_compile() {
 	fi
 
 	alias haxe='${WORKDIR}/haxe-bin/haxe'
-	alias haxelib='${WORKDIR}/haxe-bin/haxelib'
-	
 	# FNF requires several Haxe libraries for it to compile correctly.
 	# This was previously handled by a package named funkin-haxe-libraries, which has since been removed.
 	# They are being installed here for the sake of Portage and my own sanity.
 
 	# Due to haxelib's handling of directories, the local library must be defined explicitly:
 
-	haxelib setup /var/tmp/portage/games-arcade/funkin-vanilla-0.2.7.1/work/haxe/lib
+	${WORKDIR}/haxe-bin/haxelib setup /var/tmp/portage/games-arcade/funkin-vanilla-0.2.7.1/work/haxe/lib
 
 	LIBDIR="/var/cache/distfiles"
 	addread ${LIBDIR}
 
-	haxelib install ${LIBDIR}/flixel-4,11,0.zip
-	haxelib install ${LIBDIR}/newgrounds-1,1,5.zip
-	haxelib install ${LIBDIR}/hxcpp-4,2,1.zip
-	haxelib install ${LIBDIR}/flixel-ui-2,5,0.zip
-	haxelib install ${LIBDIR}/flixel-addons-3,0,0.zip
-	haxelib install ${LIBDIR}/openfl-9,1,0.zip
-	haxelib install ${LIBDIR}/lime-8,0,0.zip
-	haxelib install ${LIBDIR}/hscript-2,5,0.zip
-	haxelib install ${LIBDIR}/polymod-1,6,0.zip
-	haxelib install ${LIBDIR}/discord_rpc.zip
-	haxelib install ${LIBDIR}/lime-samples-7,0,0.zip
-	haxelib install ${LIBDIR}/lime-tools-1,5,7.zip
-	haxelib install ${LIBDIR}/flixel-tools-1,5,1.zip
-	haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
-	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-4,11,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/newgrounds-1,1,5.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/hxcpp-4,2,1.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-ui-2,5,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-addons-3,0,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/openfl-9,1,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/lime-8,0,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/hscript-2,5,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/polymod-1,6,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/discord_rpc.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/lime-samples-7,0,0.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/lime-tools-1,5,7.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-tools-1,5,1.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
+	${WORKDIR}/haxe-bin/haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
 
 	# Building the debug target to make it easier to pinpoint issues with the game itself	
 
-	haxelib run lime build linux -debug -v
+	${WORKDIR}/haxe-bin/haxelib run lime build linux -debug -v
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"

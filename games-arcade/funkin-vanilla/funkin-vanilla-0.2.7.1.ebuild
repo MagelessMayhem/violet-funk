@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,9 +8,28 @@ inherit desktop xdg-utils
 DESCRIPTION="A rhythm game made with HaxeFlixel, originally made for Ludum Dare 47's \"Stuck in a Loop\""
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 
+# The first two archives contain pre-built Haxe binaries and a fork of FNF's source code.
+# Except for the only USE conditional, the remainder are Haxe libraries.
+# We only need to extract the binaries, the source tarball, and (if applicable) the song covers.
+
 SRC_URI="
 	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-vf-vanilla/haxe-bin.zip
 	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-vf-vanilla/Funkin-VF.tar.gz
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-4,11,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/newgrounds-1,1,5.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/hxcpp-4,2,1.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-ui-2,5,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/openfl-9,1,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/lime-8,0,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/hscript-2,5,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/polymod-1,6,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/lime-tools-1,5,7.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/lime-samples-7,0,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-addons-3,0,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-tools-1,5,1.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-demos-2,9,0.zip
+	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-templates-2,6,6.zip
+	https://github.com/MagelessMayhem/discord-rpc/releases/download/1.0.0/linc_discord-rpc.zip
 	utau? ( https://github.com/MagelessMayhem/vanilla-funkaloid/releases/download/v1.0.0/utau-covers.tar.gz )
 	"
 
@@ -22,16 +41,20 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+# FNF requires X AT MINIMUM to compile properly (since it uses libX11.so).
+# alsa is enabled because FNF is a rhythm game and you'd be insane to play a rhythm game without sound.
+
 IUSE="
 		+X
 		+alsa
 		pulseaudio
 		utau
 "
-# x11-base/xorg-server pulls in x11-libs/libX11, which is what FNF needs to run.
-# This will also pull in x11-base/xorg-drivers, allowing you to run the game seamlessly.
+
+# Any desktop profile should already have libX11 and alsa-lib installed.
+
 RDEPEND="
-		X? ( x11-base/xorg-server )
+		X? ( x11-libs/libX11 )
 		alsa? ( media-libs/alsa-lib )
 		pulseaudio? ( media-sound/pulseaudio )
 "
@@ -41,10 +64,9 @@ DEPEND="
 BDEPEND="
 		app-arch/unzip
 		dev-lang/haxe
-		games-misc/funkin-haxe-libraries[base-libs]
+		sys-apps/coreutils
 		sys-devel/gcc
 		sys-devel/binutils
-		sys-apps/coreutils
 "
 src_unpack() {
 	unpack haxe-bin.zip
@@ -54,6 +76,14 @@ src_unpack() {
 	fi
 }
 src_compile() {
+
+	# Although the majority of users should have libX11 installed, the USE flag shouldn't be disabled.
+
+	if [ $(usex X) == "no" ]; then
+
+		die "Error: The X USE flag is disabled. Please enable it to compile FNF."
+
+	fi
 
 	HAXE_STD_PATH=${WORKDIR}/haxe-bin/std
 	HAXELIB_PATH=${WORKDIR}/haxe-bin
@@ -68,13 +98,35 @@ src_compile() {
 
 	alias haxe='${WORKDIR}/haxe-bin/haxe'
 	alias haxelib='${WORKDIR}/haxe-bin/haxelib'
+	
+	# FNF requires several Haxe libraries for it to compile correctly.
+	# This was previously handled by a package named funkin-haxe-libraries, which has since been removed.
+	# They are being installed here for the sake of Portage and my own sanity.
 
-	addread /usr/share/haxe
+	# Due to haxelib's handling of directories, the local library must be defined explicitly:
 
-	mkdir -p /var/tmp/portage/.local/share/haxe
-	cp -r /usr/share/haxe/lib /var/tmp/portage/.local/share/haxe/
+	haxelib setup /var/tmp/portage/games-arcade/funkin-vanilla-0.2.7.1/work/haxe/lib
 
-	haxelib setup /var/tmp/portage/.local/share/haxe/lib
+	LIBDIR="/var/cache/distfiles"
+	addread ${LIBDIR}
+
+	haxelib install ${LIBDIR}/flixel-4,11,0.zip
+	haxelib install ${LIBDIR}/newgrounds-1,1,5.zip
+	haxelib install ${LIBDIR}/hxcpp-4,2,1.zip
+	haxelib install ${LIBDIR}/flixel-ui-2,5,0.zip
+	haxelib install ${LIBDIR}/flixel-addons-3,0,0.zip
+	haxelib install ${LIBDIR}/openfl-9,1,0.zip
+	haxelib install ${LIBDIR}/lime-8,0,0.zip
+	haxelib install ${LIBDIR}/hscript-2,5,0.zip
+	haxelib install ${LIBDIR}/polymod-1,6,0.zip
+	haxelib install ${LIBDIR}/linc_discord-rpc.zip
+	haxelib install ${LIBDIR}/lime-samples-7,0,0.zip
+	haxelib install ${LIBDIR}/lime-tools-1,5,7.zip
+	haxelib install ${LIBDIR}/flixel-tools-1,5,1.zip
+	haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
+	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
+
+	# Building the debug target to make it easier to pinpoint issues with the game itself	
 
 	haxelib run lime build linux -debug -v
 }

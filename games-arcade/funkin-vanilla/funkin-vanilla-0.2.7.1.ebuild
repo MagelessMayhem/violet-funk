@@ -29,7 +29,7 @@ SRC_URI="
 	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-tools-1,5,1.zip
 	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-demos-2,9,0.zip
 	https://haxelib-tr40bgq5.fra1.cdn.digitaloceanspaces.com/files/3.0/flixel-templates-2,6,6.zip
-	https://github.com/MagelessMayhem/discord-rpc/releases/download/1.0.0/linc_discord-rpc.zip
+	https://github.com/MagelessMayhem/discord-rpc/releases/download/1.0.0/discord_rpc.zip
 	utau? ( https://github.com/MagelessMayhem/vanilla-funkaloid/releases/download/v1.0.0/utau-covers.tar.gz )
 	"
 
@@ -119,7 +119,7 @@ src_compile() {
 	haxelib install ${LIBDIR}/lime-8,0,0.zip
 	haxelib install ${LIBDIR}/hscript-2,5,0.zip
 	haxelib install ${LIBDIR}/polymod-1,6,0.zip
-	haxelib install ${LIBDIR}/linc_discord-rpc.zip
+	haxelib install ${LIBDIR}/discord_rpc.zip
 	haxelib install ${LIBDIR}/lime-samples-7,0,0.zip
 	haxelib install ${LIBDIR}/lime-tools-1,5,7.zip
 	haxelib install ${LIBDIR}/flixel-tools-1,5,1.zip

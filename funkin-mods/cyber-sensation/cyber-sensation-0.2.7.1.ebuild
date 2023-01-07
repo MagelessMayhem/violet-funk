@@ -57,7 +57,7 @@ RDEPEND="${DEPEND}"
 
 BDEPEND="
 	app-arch/unzip
-	dev-lang/violet-haxe
+	=dev-lang/haxe-4.2.5
 	sys-apps/coreutils
 	sys-devel/binutils
 	sys-devel/gcc

@@ -117,3 +117,11 @@ src_install() {
 
 	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/32x32/apps/Funkin32.png' 'Game'
 }
+pkg_postinst() {
+	elog "The mod may not run on first execution, and that is because it doesn't have access to its own folder."
+	elog
+	elog "You can take ownership of the folder to circumvent this issue:"
+	elog
+	elog "sudo chown -R <username> /usr/share/games/Cyber-Sensation/bin"
+}
+}

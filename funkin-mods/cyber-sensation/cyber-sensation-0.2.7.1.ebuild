@@ -113,7 +113,7 @@ src_install() {
 
 	# Note: Not installing new icons since Cyber Sensation uses the same icon as FNF
 	# You can request the installation of icons if desired, however
-	# Also, if FNF (games-arcade/funkin-vanilla) is installed, Cyber Sensation will simply use the icon it installed
+	# Also, if FNF (games-arcade/funkin) is installed, Cyber Sensation will simply use the icon it installed
 
 	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/32x32/apps/Funkin32.png' 'Game'
 }

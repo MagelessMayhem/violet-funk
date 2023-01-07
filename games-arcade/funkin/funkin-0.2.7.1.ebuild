@@ -8,9 +8,8 @@ inherit desktop xdg-utils
 DESCRIPTION="An open-source rhythm game written using HaxeFlixel"
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 
-# The first two archives contain pre-built Haxe binaries and a fork of FNF's source code.
-# Except for the only USE conditional, the remainder are Haxe libraries.
-# We only need to extract the binaries, the source tarball, and (if applicable) the song covers.
+# The only archive we need to extract out of these (as defined in src_unpack()) is the FNF source code.
+# If the utau USE flag is enabled, however, we should also extract the song covers.
 
 SRC_URI="
 	https://github.com/MagelessMayhem/Funkin/releases/download/v0.2.7.1-vf-vanilla/Funkin-VF.tar.gz
@@ -83,8 +82,6 @@ src_compile() {
 
 	fi
 
-	HAXE_STD_PATH=${WORKDIR}/haxe-bin/std
-
 	# Note: Source tarball already has APIStuff.hx included
 	# We don't need to create the file here
 
@@ -92,12 +89,9 @@ src_compile() {
 		cp -r "${WORKDIR}/assets/songs/" "${S}/assets/"
 	fi
 
-	alias haxe='${WORKDIR}/haxe-bin/haxe'
 	# FNF requires several Haxe libraries for it to compile correctly.
 	# This was previously handled by a package named funkin-haxe-libraries, which has since been removed.
 	# They are being installed here for the sake of Portage and my own sanity.
-
-	# Due to haxelib's handling of directories, the local library must be defined explicitly:
 
 	haxelib newrepo
 

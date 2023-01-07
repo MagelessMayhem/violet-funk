@@ -121,7 +121,7 @@ src_compile() {
 	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
 
 	# Building the debug target to make it easier to pinpoint issues with the game itself	
-	haxelib run lime build linux -debug -v
+	haxelib run lime build linux -debug
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"

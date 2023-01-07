@@ -124,4 +124,3 @@ pkg_postinst() {
 	elog
 	elog "sudo chown -R <username> /usr/share/games/Cyber-Sensation/bin"
 }
-}

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit check-reqs desktop
 
 DESCRIPTION="FNF mod based on and written by Tae Yai"
 HOMEPAGE="https://github.com/TaeYai/Cyber-Sensation"
@@ -62,6 +62,13 @@ BDEPEND="
 	sys-devel/binutils
 	sys-devel/gcc
 "
+
+CHECKREQS_DISK_BUILD="2G"
+CHECKREQS_DISK_USR="400M"
+
+pkg_setup() {
+	check-reqs_pkg_setup
+}
 
 src_unpack() {
 	unpack Cyber-Sensation.tar.gz

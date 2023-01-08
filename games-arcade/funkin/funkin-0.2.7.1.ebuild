@@ -43,28 +43,28 @@ KEYWORDS="~amd64"
 # alsa is enabled because FNF is a rhythm game and you'd be insane to play a rhythm game without sound.
 
 IUSE="
-		+X
-		+alsa
-		pulseaudio
-		utau
+	+X
+	+alsa
+	pulseaudio
+	utau
 "
 
 # Any desktop profile should already have libX11 and alsa-lib installed.
 
 RDEPEND="
-		X? ( x11-libs/libX11 )
-		alsa? ( media-libs/alsa-lib )
-		pulseaudio? ( media-sound/pulseaudio )
+	X? ( x11-libs/libX11 )
+	alsa? ( media-libs/alsa-lib )
+	pulseaudio? ( media-sound/pulseaudio )
 "
 DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-		app-arch/unzip
-		dev-lang/haxe
-		sys-apps/coreutils
-		sys-devel/gcc
-		sys-devel/binutils
+	app-arch/unzip
+	dev-lang/haxe
+	sys-apps/coreutils
+	sys-devel/gcc
+	sys-devel/binutils
 "
 src_unpack() {
 	unpack Funkin-VF.tar.gz

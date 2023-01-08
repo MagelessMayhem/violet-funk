@@ -65,6 +65,7 @@ BDEPEND="
 
 CHECKREQS_DISK_BUILD="2G"
 CHECKREQS_DISK_USR="400M"
+CHECKREQS_DISK_VAR="3G"
 
 pkg_setup() {
 	check-reqs_pkg_setup

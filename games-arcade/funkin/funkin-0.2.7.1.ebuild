@@ -60,6 +60,7 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
+	X? ( x11-libs/libX11 )
 	app-arch/unzip
 	dev-lang/haxe
 	sys-apps/coreutils

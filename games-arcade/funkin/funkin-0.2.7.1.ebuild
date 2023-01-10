@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop xdg-utils
+inherit check-reqs desktop xdg-utils
 
 DESCRIPTION="An open-source rhythm game written using HaxeFlixel"
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
@@ -45,10 +45,18 @@ KEYWORDS="~amd64"
 IUSE="
 	+X
 	+alsa
+	+lime-debug
+	lime-final
+	lime-release
 	pulseaudio
 	utau
 "
-
+REQUIRED_USE="
+	|| ( lime-debug lime-final lime-release )
+	lime-debug? ( !lime-final !lime-release )
+	lime-final? ( !lime-debug !lime-release )
+	lime-release? ( !lime-debug !lime-final )
+"
 # Any desktop profile should already have libX11 and alsa-lib installed.
 
 RDEPEND="
@@ -66,6 +74,15 @@ BDEPEND="
 	sys-devel/gcc
 	sys-devel/binutils
 "
+
+CHECKREQS_DISK_BUILD="2G"
+CHECKREQS_DISK_VAR="2.7G"
+CHECKREQS_DISK_USR="350M"
+
+pkg_setup() {
+	check-reqs_pkg_setup
+}
+
 src_unpack() {
 	unpack Funkin-VF.tar.gz
 	if [ $(usex utau) == "yes" ]; then
@@ -114,15 +131,28 @@ src_compile() {
 	haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
 	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
 
-	# Building the debug target to make it easier to pinpoint issues with the game itself	
-	haxelib run lime build linux -debug
+	# By default, we will build the debug target to make it easier to find potential issues
+	# However, this is not required and you may change this in package.use
+
+	if [ $(usex lime-debug) == "yes" ]; then
+		haxelib run lime build linux -debug
+	elif [ $(usex lime-final) == "yes" ]; then
+		haxelib run lime build linux -final
+	elif [ $(usex lime-release) == "yes" ]; then
+		haxelib run lime build linux
+	fi
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"
 	insinto "/usr/share/games/Funkin"
-	doins -r "${S}/export/debug/linux/bin"
 	exeinto "/usr/share/games/Funkin/bin"
-	doexe "${S}/export/debug/linux/bin/Funkin"
+	if [ $(usex lime-debug) == "yes" ]; then
+		doins -r "${S}/export/debug/linux/bin"
+		doexe "${S}/export/debug/linux/bin/Funkin"
+	else
+		doins -r "${S}/export/release/linux/bin"
+		doexe "${S}/export/release/linux/bin/Funkin"
+	fi
 	echo '(cd /usr/share/games/Funkin/bin; ./Funkin)' > "${WORKDIR}/funkin"
 	dobin "${WORKDIR}/funkin"
 	newicon -s 32 "${S}/art/icon32.png" "Funkin32.png"

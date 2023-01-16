@@ -52,6 +52,8 @@ IUSE="
 	utau
 "
 REQUIRED_USE="
+	X
+	alsa
 	|| ( lime-debug lime-final lime-release )
 	lime-debug? ( !lime-final !lime-release )
 	lime-final? ( !lime-debug !lime-release )
@@ -92,12 +94,6 @@ src_unpack() {
 src_compile() {
 
 	# Although the majority of users should have libX11 installed, the USE flag shouldn't be disabled.
-
-	if [ $(usex X) == "no" ]; then
-
-		die "Error: The X USE flag is disabled. Please enable it to compile FNF."
-
-	fi
 
 	# Note: Source tarball already has APIStuff.hx included
 	# We don't need to create the file here

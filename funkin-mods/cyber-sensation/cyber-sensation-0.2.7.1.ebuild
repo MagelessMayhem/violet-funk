@@ -46,7 +46,10 @@ IUSE="
 	+alsa
 	pulseaudio
 "
-
+REQUIRED_USE="
+	X
+	alsa
+"
 DEPEND="
 	X? ( x11-libs/libX11 )
 	alsa? ( media-libs/alsa-lib )

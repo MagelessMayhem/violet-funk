@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs desktop xdg-utils
 
-DESCRIPTION="An open-source rhythm game written using HaxeFlixel"
+DESCRIPTION="A rhythm game made with HaxeFlixel"
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
 
 # The only archive we need to extract out of these (as defined in src_unpack()) is the FNF source code.
@@ -131,11 +131,11 @@ src_compile() {
 	# However, this is not required and you may change this in package.use
 
 	if [ $(usex lime-debug) == "yes" ]; then
-		haxelib run lime build linux -debug
+		haxelib run lime build linux -debug -v
 	elif [ $(usex lime-final) == "yes" ]; then
-		haxelib run lime build linux -final
+		haxelib run lime build linux -final -v
 	elif [ $(usex lime-release) == "yes" ]; then
-		haxelib run lime build linux
+		haxelib run lime build linux -v
 	fi
 }
 src_install() {
@@ -158,6 +158,7 @@ src_install() {
 }
 pkg_postinst() {
 	xdg_icon_cache_update
+	xdg_desktop_database_update
 	elog "The following are known (potential) issues with the software:"
 	elog
 	elog "- One less song shows up in story mode per week."

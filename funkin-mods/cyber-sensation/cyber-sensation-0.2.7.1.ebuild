@@ -129,9 +129,14 @@ src_compile() {
 src_install() {
 	keepdir "/usr/share/games/Cyber-Sensation"
 	insinto "/usr/share/games/Cyber-Sensation"
-	doins -r "${S}/export/release/linux/bin"
 	exeinto "/usr/share/games/Cyber-Sensation/bin"
-	doexe "${S}/export/release/linux/bin/Kade Engine"
+	if [ $(usex lime-debug) == "yes" ]; then
+		doins -r "${S}/export/debug/linux/bin"
+		doexe "${S}/export/debug/linux/bin/Kade Engine"
+	else
+		doins -r "${S}/export/release/linux/bin"
+		doexe "${S}/export/release/linux/bin/Kade Engine"
+	fi
 	echo "( cd /usr/share/games/Cyber-Sensation/bin; ./Kade\ Engine )" > ${S}/cyber-sensation
 	dobin "${S}/cyber-sensation"
 
@@ -139,7 +144,7 @@ src_install() {
 	# You can request the installation of icons if desired, however
 	# Also, if FNF (games-arcade/funkin) is installed, Cyber Sensation will simply use the icon it installed
 
-	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/32x32/apps/Funkin64.png' 'Game'
+	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/64x64/apps/Funkin64.png' 'Game'
 }
 pkg_postinst() {
 	elog "The mod may not run on first execution, and that is because it doesn't have access to its own folder."

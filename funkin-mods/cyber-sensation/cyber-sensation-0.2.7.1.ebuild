@@ -44,11 +44,18 @@ KEYWORDS="~amd64"
 IUSE="
 	+X
 	+alsa
+	+lime-debug
+	lime-final
+	lime-release
 	pulseaudio
 "
 REQUIRED_USE="
 	X
 	alsa
+	|| ( lime-debug lime-final lime-release )
+	lime-debug? ( !lime-final !lime-release )
+	lime-final? ( !lime-debug !lime-release )
+	lime-release? ( !lime-debug !lime-final )
 "
 DEPEND="
 	X? ( x11-libs/libX11 )
@@ -110,7 +117,13 @@ src_compile() {
 	haxelib install ${LIBDIR}/extension-webm.zip
 	haxelib run lime rebuild extension-webm linux
 
-	haxelib run lime build linux
+	if [ $(usex lime-debug) == "yes" ]; then
+		haxelib run lime build linux -debug -v
+	elif [ $(usex lime-final) == "yes" ]; then
+		haxelib run lime build linux -final -v
+	elif [ $(usex lime-release) == "yes" ]; then
+		haxelib run lime build linux -v
+	fi
 }
 
 src_install() {
@@ -126,7 +139,7 @@ src_install() {
 	# You can request the installation of icons if desired, however
 	# Also, if FNF (games-arcade/funkin) is installed, Cyber Sensation will simply use the icon it installed
 
-	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/32x32/apps/Funkin32.png' 'Game'
+	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/32x32/apps/Funkin64.png' 'Game'
 }
 pkg_postinst() {
 	elog "The mod may not run on first execution, and that is because it doesn't have access to its own folder."

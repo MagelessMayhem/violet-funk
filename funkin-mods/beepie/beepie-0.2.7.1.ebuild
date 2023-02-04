@@ -126,8 +126,10 @@ src_install() {
 	exeinto "/usr/share/games/FNF-Beepie/bin"
 	if [ $(usex lime-debug) == "yes" ]; then
 		doins -r "${S}/export/debug/linux/bin"
+		doexe "${S}/export/debug/linux/bin/Vs. Beepie"
 	else
 		doins -r "${S}/export/release/linux/bin"
+		doexe "${S}/export/release/linux/bin/Vs. Beepie"
 	fi
 	echo "( cd /usr/share/games/FNF-Beepie/bin; ./Vs.\ Beepie )" > ${S}/beepie-fnf
 	dobin "${S}/beepie-fnf"

@@ -154,7 +154,7 @@ src_install() {
 	newicon -s 32 "${S}/art/icon32.png" "Funkin32.png"
 	newicon -s 16 "${S}/art/icon16.png" "Funkin16.png"
 	newicon -s 64 "${S}/art/icon64.png" "Funkin64.png"
-	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/icons/hicolor/32x32/apps/Funkin64.png' 'Game'
+	make_desktop_entry '/usr/bin/funkin' "Friday Night Funkin'" '/usr/share/icons/hicolor/64x64/apps/Funkin64.png' 'Game'
 }
 pkg_postinst() {
 	xdg_icon_cache_update

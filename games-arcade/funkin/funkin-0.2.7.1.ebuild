@@ -168,3 +168,6 @@ pkg_postinst() {
 	elog
 	elog "Any issues with the ebuild and not the software installed by the ebuild may appropriately be submitted to the Gentoo Bugzilla."
 }
+pkg_postrm() {
+	xdg_icon_cache_update
+}

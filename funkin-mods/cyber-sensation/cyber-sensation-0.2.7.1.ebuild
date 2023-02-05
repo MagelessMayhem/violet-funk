@@ -37,7 +37,7 @@ SRC_URI="
 
 S="${WORKDIR}/Cyber-Sensation"
 
-LICENSE="Apache-2.0 MIT"
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 

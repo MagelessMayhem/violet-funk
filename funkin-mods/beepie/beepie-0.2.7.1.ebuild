@@ -34,7 +34,7 @@ SRC_URI="
 
 S="${WORKDIR}/Beepie-Gentoo"
 
-LICENSE="Apache-2.0 MIT"
+LICENSE="Apache-2.0"
 
 SLOT="0"
 

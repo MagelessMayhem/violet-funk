@@ -1,6 +1,6 @@
 # violet-funk
 
-Gentoo ebuild overlay based around FNF and FNF mods.
+Gentoo ebuild overlay based around FNF, with miscellaneous useful software as a bonus.
 
 The mods in this overlay are *currently* binaries; the base game, however, is a source ebuild. The mods are currently being migrated to source ebuilds, so do expect some rockiness during the process.
 

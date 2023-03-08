@@ -7,4 +7,5 @@
 	</maintainer>
 	<longdescription>
 		update-grub, a component of Debian's grub2-common package, is a shell script which provides a convenient way to update your GRUB or GRUB2 configuration.
+	</longdescription>
 </pkgmetadata>

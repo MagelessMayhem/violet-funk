@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit unpacker
+inherit unpacker xdg-utils
 
 DESCRIPTION="The icon themes for Linux Mint"
 HOMEPAGE="https://github.com/linuxmint/mint-x-icons https://github.com/linuxmint/mint-y-icons"
@@ -28,4 +28,10 @@ unpacker_src_unpack() {
 src_install() {
 	insinto /usr/share
 	doins -r ${S}/usr/share/icons
+}
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+pkg_postrm() {
+	xdg_icon_cache_update
 }

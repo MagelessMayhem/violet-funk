@@ -47,7 +47,7 @@ SRC_URI="
 	debian? ( http://packages.linuxmint.com/pool/main/m/mint-backgrounds-debian/mint-backgrounds-debian_1.4_all.deb )
 "
 
-LICENSE="no-source-code"
+LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 S="${WORKDIR}"
@@ -87,7 +87,43 @@ IUSE="
 	helena
 	debian
 "
-
+REQUIRED_USE="|| (
+	xfce
+	vera
+	vanessa
+	una
+	uma
+	ulyssa
+	ulyana
+	tricia
+	tina
+	tessa
+	tara
+	sylvia
+	sonya
+	serena
+	sarah
+	rosa
+	retro
+	rebecca
+	rafaela
+	qiana
+	petra
+	olivia
+	nadia
+	nadia-extra
+	maya
+	maya-extra
+	lisa
+	lisa-extra
+	katya
+	katya-extra
+	julia
+	isadora
+	helena
+	debian
+)
+"
 DEPEND="sys-devel/binutils"
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"

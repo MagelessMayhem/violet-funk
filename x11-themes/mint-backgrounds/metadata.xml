@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>MagelessMayhem@protonmail.com</email>
+		<name>Sebastian France</name>
+	</maintainer>
+	<use>
+		<flag name="xfce">
+			Pull in Linux Mint's base Xfce backdrops.
+		</flag>
+		<flag name="vera">
+			Pull in backgrounds from Linux Mint 21.1.
+		</flag>
+		<flag name="vanessa">
+			Pull in backgrounds from Linux Mint 21.
+		</flag>
+		<flag name="una">
+			Pull in backgrounds from Linux Mint 20.3.
+		</flag>
+		<flag name="uma">
+			Pull in backgrounds from Linux Mint 20.2.
+		</flag>
+		<flag name="ulyssa">
+			Pull in backgrounds from Linux Mint 20.1.
+		</flag>
+		<flag name="ulyana">
+			Pull in backgrounds from Linux Mint 20.
+		</flag>
+		<flag name="tricia">
+			Pull in backgrounds from Linux Mint 19.3.
+		</flag>
+		<flag name="tina">
+			Pull in backgrounds from Linux Mint 19.2.
+		</flag>
+		<flag name="tessa">
+			Pull in backgrounds from Linux Mint 19.1.
+		</flag>
+		<flag name="tara">
+			Pull in backgrounds from Linux Mint 19.
+		</flag>
+		<flag name="sylvia">
+			Pull in backgrounds from Linux Mint 18.3.
+		</flag>
+		<flag name="sonya">
+			Pull in backgrounds from Linux Mint 18.2.
+		</flag>
+		<flag name="serena">
+			Pull in backgrounds from Linux Mint 18.1.
+		</flag>
+		<flag name="sara">
+			Pull in backgrounds from Linux Mint 18.
+		</flag>
+		<flag name="rosa">
+			Pull in backgrounds from Linux Mint 17.3.
+		</flag>
+		<flag name="retro">
+			Pull in throwback backgrounds from Linux Mint.
+		</flag>
+		<flag name="rebecca">
+			Pull in backgrounds from Linux Mint 17.1.
+		</flag>
+		<flag name="rafaela">
+			Pull in backgrounds from Linux Mint 17.2.
+		</flag>
+		<flag name="qiana">
+			Pull in backgrounds from Linux Mint 17.
+		</flag>
+		<flag name="petra">
+			Pull in backgrounds from Linux Mint 16.
+		</flag>
+		<flag name="olivia">
+			Pull in backgrounds from Linux Mint 15.
+		</flag>
+		<flag name="nadia">
+			Pull in backgrounds from Linux Mint 14.
+		</flag>
+		<flag name="nadia-extra">
+			Pull in additional backgrounds from Linux Mint 14.
+		</flag>
+		<flag name="maya">
+			Pull in backgrounds from Linux Mint 13.
+		</flag>
+		<flag name="maya-extra">
+			Pull in additional backgrounds from Linux Mint 13.
+		</flag>
+		<flag name="lisa">
+			Pull in backgrounds from Linux Mint 12.
+		</flag>
+		<flag name="lisa-extra">
+			Pull in additional backgrounds from Linux Mint 12.
+		</flag>
+		<flag name="katya">
+			Pull in backgrounds from Linux Mint 11.
+		</flag>
+		<flag name="katya-extra">
+			Pull in additional backgrounds from Linux Mint 11.
+		</flag>
+		<flag name="julia">
+			Pull in backgrounds from Linux Mint 10.
+		</flag>
+		<flag name="isadora">
+			Pull in backgrounds from Linux Mint 9.
+		</flag>
+		<flag name="helena">
+			Pull in backgrounds from Linux Mint 8.
+		</flag>
+		<flag name="debian">
+			Pull in the background used by LMDE.
+		</flag>
+	</use>
+</pkgmetadata>

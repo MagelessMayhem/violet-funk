@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	app-arch/rpm
+	app-arch/rpm[python]
 	dev-python/blessed
 "
 BDEPEND="

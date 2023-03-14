@@ -87,24 +87,14 @@ pkg_setup() {
 
 src_unpack() {
 	unpack Funkin-VF.tar.gz
-	if [ $(usex utau) == "yes" ]; then
+	if use utau; then
 		unpack utau-covers.tar.gz
 	fi
 }
-src_compile() {
 
-	# Although the majority of users should have libX11 installed, the USE flag shouldn't be disabled.
+src_prepare() {
 
-	# Note: Source tarball already has APIStuff.hx included
-	# We don't need to create the file here
-
-	if [ -d "${WORKDIR}/assets" ]; then
-		cp -r "${WORKDIR}/assets/songs/" "${S}/assets/"
-	fi
-
-	# FNF requires several Haxe libraries for it to compile correctly.
-	# This was previously handled by a package named funkin-haxe-libraries, which has since been removed.
-	# They are being installed here for the sake of Portage and my own sanity.
+	eapply_user
 
 	haxelib newrepo
 
@@ -127,22 +117,45 @@ src_compile() {
 	haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
 	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
 
-	# By default, we will build the debug target to make it easier to find potential issues
-	# However, this is not required and you may change this in package.use
+	# Hacky workaround for adding compiler flags to HXCPP
 
-	if [ $(usex lime-debug) == "yes" ]; then
-		haxelib run lime build linux -debug -v
-	elif [ $(usex lime-final) == "yes" ]; then
-		haxelib run lime build linux -final -v
-	elif [ $(usex lime-release) == "yes" ]; then
-		haxelib run lime build linux -v
+	ORIGINAL_IFS="${IFS}"
+	IFS=' '
+	read -ra HXCPP_FLAGS <<< "${CFLAGS}"
+
+	for FLAG in "${HXCPP_FLAGS[@]}"; do
+
+		sed -i "2 i \ <cflag value=\""${FLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
+		sed -i "2 i \ <cppflag value=\""${FLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
+
+	done
+
+	IFS="${ORIGINAL_IFS}"
+}
+
+src_compile() {
+
+	if use utau; then
+		cp -r "${WORKDIR}/assets/songs/" "${S}/assets/"
+	fi
+
+	# Hacky workaround for make jobs; note that this is the only option HXCPP supports
+
+	JOBS=$(echo ${MAKEOPTS} | tr -dc '0-9')
+
+	if use lime-debug; then
+		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -debug -v
+	elif use lime-final; then
+		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -final -v
+	elif use lime-release; then
+		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -v
 	fi
 }
 src_install() {
 	keepdir "/usr/share/games/Funkin"
 	insinto "/usr/share/games/Funkin"
 	exeinto "/usr/share/games/Funkin/bin"
-	if [ $(usex lime-debug) == "yes" ]; then
+	if use lime-debug; then
 		doins -r "${S}/export/debug/linux/bin"
 		doexe "${S}/export/debug/linux/bin/Funkin"
 	else

@@ -121,12 +121,20 @@ src_prepare() {
 
 	ORIGINAL_IFS="${IFS}"
 	IFS=' '
-	read -ra HXCPP_FLAGS <<< "${CFLAGS}"
 
-	for FLAG in "${HXCPP_FLAGS[@]}"; do
+	read -ra HXCPP_CFLAGS <<< "${CFLAGS}"
 
-		sed -i "2 i \ <cflag value=\""${FLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
-		sed -i "2 i \ <cppflag value=\""${FLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
+	read -ra HXCPP_CXXFLAGS <<< "${CXXFLAGS}"
+
+	for CFLAG in "${HXCPP_FLAGS[@]}"; do
+
+		sed -i "2 i \ <cflag value=\""${CFLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
+
+	done
+
+	for CXXFLAG in "${HXCPP_CXXFLAGS[@]}"; do
+
+		sed -i "2 i \ <cppflag value=\""${CXXFLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
 
 	done
 

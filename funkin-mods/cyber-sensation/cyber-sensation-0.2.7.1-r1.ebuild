@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit check-reqs desktop
+inherit check-reqs desktop xdg-utils
 
 DESCRIPTION="FNF mod based on and written by Tae Yai"
 HOMEPAGE="https://github.com/TaeYai/Cyber-Sensation"
@@ -56,7 +56,7 @@ REQUIRED_USE="
 	lime-debug? ( !lime-final !lime-release )
 	lime-final? ( !lime-debug !lime-release )
 	lime-release? ( !lime-debug !lime-final )
-"
+" 
 DEPEND="
 	X? ( x11-libs/libX11 )
 	alsa? ( media-libs/alsa-lib )
@@ -127,17 +127,22 @@ src_compile() {
 }
 
 src_install() {
-	keepdir "/usr/share/games/Cyber-Sensation"
-	insinto "/usr/share/games/Cyber-Sensation"
-	exeinto "/usr/share/games/Cyber-Sensation/bin"
-	if [ $(usex lime-debug) == "yes" ]; then
+
+	# Since the game is compiled with replays enabled, it requires write access at the convenience of any user who runs it
+	# This installs the game to /opt and provides a shell script in /usr/bin to execute it from there
+	# Everything else should function as intended
+
+	keepdir "/opt/funkin/Cyber-Sensation"
+	insinto "/opt/funkin/Cyber-Sensation"
+	exeinto "/opt/funkin/Cyber-Sensation/bin"
+	if use lime-debug; then
 		doins -r "${S}/export/debug/linux/bin"
 		doexe "${S}/export/debug/linux/bin/Kade Engine"
 	else
 		doins -r "${S}/export/release/linux/bin"
 		doexe "${S}/export/release/linux/bin/Kade Engine"
 	fi
-	echo "( cd /usr/share/games/Cyber-Sensation/bin; ./Kade\ Engine )" > ${S}/cyber-sensation
+	echo "( cd /opt/funkin/Cyber-Sensation/bin; ./Kade\ Engine )" > ${S}/cyber-sensation
 	dobin "${S}/cyber-sensation"
 
 	# Note: Not installing new icons since Cyber Sensation uses the same icon as FNF
@@ -147,9 +152,8 @@ src_install() {
 	make_desktop_entry '/usr/bin/cyber-sensation' 'Cyber Sensation' '/usr/share/icons/hicolor/64x64/apps/Funkin64.png' 'Game'
 }
 pkg_postinst() {
-	elog "The mod may not run on first execution, and that is because it doesn't have access to its own folder."
-	elog
-	elog "You can take ownership of the folder to circumvent this issue:"
-	elog
-	elog "sudo chown -R <username> /usr/share/games/Cyber-Sensation/bin"
+	xdg_desktop_database_update
+}
+pkg_postrm() {
+	xdg_desktop_database_update
 }

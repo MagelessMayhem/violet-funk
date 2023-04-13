@@ -69,9 +69,11 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+# Haxe 4.3 is on track to introduce bit-wise data types, which the game's source code does not support
+# Therefore, unless the game is updated to support Haxe 4.3 (judging from the new features), its Haxe dependency will be version-locked
 BDEPEND="
 	app-arch/unzip
-	dev-lang/haxe
+	<dev-lang/haxe-4.3
 	sys-apps/coreutils
 	sys-devel/gcc
 	sys-devel/binutils
@@ -191,4 +193,6 @@ pkg_postinst() {
 }
 pkg_postrm() {
 	xdg_icon_cache_update
+	xdg_desktop_database_update
+	elog "Any save data stored on the disk has not been removed.\n\nThis save data should be in ~/.local/, and you may wipe it if you wish."
 }

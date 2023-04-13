@@ -39,6 +39,7 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+RESTRICT="strip"
 # FNF requires X AT MINIMUM to compile properly (since it uses libX11.so).
 # alsa is enabled because FNF is a rhythm game and you'd be insane to play a rhythm game without sound.
 

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit check-reqs desktop xdg-utils
+inherit check-reqs desktop hxcpp xdg-utils
 
 DESCRIPTION="A rhythm game made with HaxeFlixel"
 HOMEPAGE="https://github.com/FunkinCrew/Funkin"
@@ -84,6 +84,7 @@ CHECKREQS_DISK_BUILD="2000M"
 CHECKREQS_DISK_VAR="2700M"
 CHECKREQS_DISK_USR="350M"
 
+
 pkg_setup() {
 	check-reqs_pkg_setup
 }
@@ -120,28 +121,7 @@ src_prepare() {
 	haxelib install ${LIBDIR}/flixel-templates-2,6,6.zip
 	haxelib install ${LIBDIR}/flixel-demos-2,9,0.zip
 
-	# Hacky workaround for adding compiler flags to HXCPP
-
-	ORIGINAL_IFS="${IFS}"
-	IFS=' '
-
-	read -ra HXCPP_CFLAGS <<< "${CFLAGS}"
-
-	read -ra HXCPP_CXXFLAGS <<< "${CXXFLAGS}"
-
-	for CFLAG in "${HXCPP_FLAGS[@]}"; do
-
-		sed -i "2 i \ <cflag value=\""${CFLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
-
-	done
-
-	for CXXFLAG in "${HXCPP_CXXFLAGS[@]}"; do
-
-		sed -i "2 i \ <cppflag value=\""${CXXFLAG}"\"\/>" ${S}/.haxelib/hxcpp/4,2,1/toolchain/common-defines.xml
-
-	done
-
-	IFS="${ORIGINAL_IFS}"
+	hxcpp_src_prepare
 }
 
 src_compile() {
@@ -150,16 +130,16 @@ src_compile() {
 		cp -r "${WORKDIR}/assets/songs/" "${S}/assets/"
 	fi
 
-	# Hacky workaround for make jobs; note that this is the only option HXCPP supports
-
-	JOBS=$(echo ${MAKEOPTS} | tr -dc '0-9')
-
-	if use lime-debug; then
-		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -debug -v
-	elif use lime-final; then
-		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -final -v
-	elif use lime-release; then
-		env HXCPP_COMPILE_THREADS=${JOBS} haxelib run lime build linux -v
+	if use !lime-release; then
+		if use lime-debug; then
+			HXCPP_LIME_TARGET="debug"
+			hxcpp_src_compile
+		elif use lime-final; then
+			HXCPP_LIME_TARGET="final"
+			hxcpp_src_compile
+		fi
+	else
+		hxcpp_src_compile
 	fi
 }
 src_install() {

@@ -9,9 +9,8 @@ inherit desktop hxcpp xdg-utils
 
 DESCRIPTION="FNF mod based on SrPelo's Mokey"
 HOMEPAGE="https://github.com/MagelessMayhem/VsMokey"
-SRC_URI="https://github.com/MagelessMayhem/VsMokey/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/MagelessMayhem/VsMokey/releases/download/${PV}/${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/VsMokey-${PV}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
